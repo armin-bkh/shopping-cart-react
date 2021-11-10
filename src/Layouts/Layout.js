@@ -1,7 +1,9 @@
-const Layout = ({children}) => {
+import Navigation from "../Components/Navigation/Navigation";
+
+const Layout = ({ children }) => {
   return (
     <>
-      <header>naviagtion</header>
+      <Navigation />
       {children}
       <footer>footer</footer>
     </>
