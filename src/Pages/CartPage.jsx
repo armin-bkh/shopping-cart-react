@@ -1,11 +1,11 @@
 import Layout from "../Layouts/Layout";
 
-const HomePage = () => {
+const CartPage = () => {
     return ( 
         <Layout>
-            <h1>home page</h1>
+            <h1>cart page</h1>
         </Layout>
      );
 }
  
-export default HomePage;
+export default CartPage;

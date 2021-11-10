@@ -1,10 +1,14 @@
 import { Route, Routes } from "react-router";
-import HomePage from "./Pages/HomePage";
+import { routes } from "./Routes/Routes";
 
 const  App = () => {
   return (
     <Routes>
-      <Route path="/" element={<HomePage />} />
+      {
+        routes.map(route => <Route path={route.path} element={route.element} key={route.path} />)
+      }
+      {/* <Route path="/" element={<HomePage />} />
+      <Route path="/cart" element={<Cart />} /> */}
     </Routes>
   );
 }

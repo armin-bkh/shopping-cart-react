@@ -9,7 +9,8 @@ const navigation = [
 const Navigation = () => {
   return (
     <header>
-      <nav>
+      <nav className={styles.nav}>
+          <h1 className={styles.title}>Armin shopping</h1>
         <ul className={styles.navBar}>
           {navigation.map((nav) => (
             <li key={nav.to}>
