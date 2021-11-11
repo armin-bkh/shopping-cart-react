@@ -4,15 +4,13 @@ const ProductItem = ({ product }) => {
   return (
     <article className={styles.card}>
       <img className={styles.img} src={product.image} alt={product.name} />
+      <div>
+
+      </div>
       <header className={styles.header}>
-        <h1>{product.name}</h1>
-        <span>{product.price}</span>
+        <h1 className="title">{product.name}</h1>
+        <span className="main">${product.price}</span>
       </header>
-      <ul>
-        {product.description.map((sup) => (
-          <li>{sup.support}</li>
-        ))}
-      </ul>
     </article>
   );
 };

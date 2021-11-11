@@ -1,9 +1,9 @@
 .card{
+    overflow: hidden;
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    padding: 15px;
-    border-radius: 15px;
+    border-radius: 5px;
     box-shadow: 0 2px 5px #bbbbbb;
     transition: all .3s ease;
     cursor: pointer;
@@ -13,9 +13,14 @@
     }
 
     .header{
+        padding: 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        h1{
+            font-size: 1.2rem;
+        }
     }
 
 
