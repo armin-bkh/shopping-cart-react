@@ -1,6 +1,7 @@
 export const products = [
 
     {
+      id: 1,
       name: "Winter body",
       description: [
         { support: "گارانتی مادام العمر" },
@@ -13,6 +14,7 @@ export const products = [
       image: "https://s4.uupload.ir/files/item1_soj.jpg",
     }, 
     {
+      id: 2,
       name: "Adidas",
       description: [
         { support: "گارانتی مادام العمر" },
@@ -24,6 +26,7 @@ export const products = [
      image:"https://s4.uupload.ir/files/item2_fc5s.jpg"
     },  
     {
+      id: 3,
       name: "Vans",
       description: [
         { support: "گارانتی مادام العمر" },
@@ -36,6 +39,7 @@ export const products = [
      image:"https://s4.uupload.ir/files/item3_zvc9.jpg"
     },  
     {
+      id: 4,
       name: "White",
       description: [
         { support: "گارانتی مادام العمر" },
@@ -48,6 +52,7 @@ export const products = [
      image:"https://s4.uupload.ir/files/item4_zr94.jpg"
     },
     {
+      id: 5,
       name: "Croopped-shoe",
       description: [
         { support: "گارانتی مادام العمر" },
@@ -60,6 +65,7 @@ export const products = [
      image:"https://s4.uupload.ir/files/item5_24ye.jpg"
     },  
     {
+      id: 6,
       name: "Blues",
       description: [
         { support: "گارانتی مادام العمر" },
