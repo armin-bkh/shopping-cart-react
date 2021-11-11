@@ -5,13 +5,11 @@ import cartReducer from "./CartReducer";
 const initialState = {
   cart: [],
   totalPrice: 0,
-}
+};
 
 const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, initialState);
-  useEffect(()=>{
-    console.log(cart);
-  }, [cart])
+
   return (
     <CartContext.Provider value={cart}>
       <CartContextDispatcher.Provider value={dispatch}>
