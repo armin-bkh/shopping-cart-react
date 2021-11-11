@@ -1,4 +1,4 @@
-.card{
+.card {
     overflow: hidden;
     display: flex;
     flex-flow: column wrap;
@@ -8,22 +8,22 @@
     transition: all .3s ease;
     cursor: pointer;
 
-    .img{
+    .img {
         width: 100%;
     }
 
-    .header{
+    .header {
         padding: 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
 
-        h1{
+        h1 {
             font-size: 1.2rem;
         }
     }
 
-    .btn{
+    .btn {
         padding: 10px 0;
         border: none;
         background: #93C5FD;
@@ -33,13 +33,13 @@
         align-items: center;
         font-size: 1rem;
 
-        .icon{
+        .icon {
             margin-left: 7px;
         }
     }
 
 
-    &:hover{
-    box-shadow: 0 2px 15px #999999;
+    &:hover {
+        box-shadow: 0 2px 15px #999999;
     }
 }
