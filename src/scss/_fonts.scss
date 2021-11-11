@@ -1,0 +1,41 @@
+$headers: 'headers';
+$title: 'title';
+$main: 'main';
+$iconTxt: 'iconTxt';
+
+@font-face {
+    font-family: 'headers';
+    src: url('../fonts/MochiyPopPOne-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'title';
+    src: url('../fonts/Kanit-Medium.ttf');
+}
+
+@font-face {
+    font-family: 'iconTxt';
+    src: url('../fonts/Pacifico-Regular.ttf');
+}
+
+@font-face {
+    font-family: 'main';
+    src: url('../fonts/ZenKakuGothicAntique-Light.ttf');
+}
+
+
+.headers {
+    font-family: $headers;
+}
+
+.title {
+    font-family: $title;
+}
+
+.main {
+    font-family: $main;
+}
+
+.iconTxt {
+    font-family: $iconTxt;
+}
