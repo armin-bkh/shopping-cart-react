@@ -4,7 +4,8 @@
     box-shadow: 0 2px 5px #bbbbbb;
     border-radius: 5px;
     transition: all .3s ease;
-    &:not(:last-child){
+
+    &:not(:last-child) {
         margin-bottom: 1rem;
     }
 
@@ -26,40 +27,42 @@
         padding: 20px;
 
         .btnContainer {
-            display: flex;
-            flex-flow: column wrap;
-            justify-content: space-between;
             height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .incDecBtn {
+                color: #93C5FD;
+                border: 1px solid #93C5FD;
+                background: transparent;
+                border-radius: 50%;
+                width: 23px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 23px;
+                font-size: 1rem;
+                transition: all .3s ease;
+
+                &:hover {
+                    background-color: #93C5FD;
+                    color: #fff;
+            }
+            }
 
             .delBtn {
                 color: #ff0000;
-                background: transparent;
-                font-size: 1rem;
-                border: none;
-                align-self: flex-end;
+                border: 1px solid #ff0000;
+                transition: all .3s ease;
+                &:hover {
+                    background-color: #ff0000;
+                    color: #fff;
+                }
             }
 
-            .incDecContainer {
-                display: flex;
-                align-items: center;
-                justify-content: center;
-
-                .incDecBtn {
-                    color: #93C5FD;
-                    border: 1px solid #93C5FD;
-                    background: transparent;
-                    border-radius: 50%;
-                    width: 20px;
-                    display: flex;
-                    justify-content: center;
-                    align-items: center;
-                    height: 20px;
-                    font-size: 2rem;
-                }
-
-                .productQty {
-                    margin: 0 10px;
-                }
+            .productQty {
+                margin: 0 10px;
             }
         }
     }
