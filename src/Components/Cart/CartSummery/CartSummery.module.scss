@@ -1,0 +1,11 @@
+.cartSummery{
+    padding: 1rem;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px #bbbbbb;
+    height: 15rem;
+
+    @media screen and (max-width: 767px) {
+        grid-row-start: 1;
+        grid-row-end: 2;
+    }
+}

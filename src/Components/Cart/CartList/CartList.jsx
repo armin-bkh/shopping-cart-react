@@ -1,5 +1,5 @@
-import { useCart } from "../../Provider/CartProvider";
-import CartItem from "./CartItem/CartItem";
+import { useCart } from "../../../Provider/CartProvider";
+import CartItem from "../CartItem/CartItem";
 import styles from "./CartList.module.scss";
 
 const CartList = () => {
@@ -10,7 +10,7 @@ const CartList = () => {
       {cart.length ? (
         cart.map((item) => <CartItem key={item.id} product={item} />)
       ) : (
-        <h1>your cart is emptey</h1>
+        <h1 className={`headers ${styles.message}`}>your cart is emptey</h1>
       )}
     </section>
   );

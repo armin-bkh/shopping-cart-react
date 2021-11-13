@@ -9,8 +9,8 @@ const CartItem = ({ product }) => {
       </div>
       <div className={styles.description}>
         <div>
-          <h1>{product.name}</h1>
-          <span>${product.price}</span>
+          <h1 className={`title`}>{product.name}</h1>
+          <span className={`main`}>${product.price * product.qty}</span>
         </div>
         <div className={styles.btnContainer}>
           <button className={styles.delBtn} type="button">
@@ -20,7 +20,7 @@ const CartItem = ({ product }) => {
             <button className={styles.incDecBtn} type="button">
               <BiPlus />
             </button>
-            <span className={styles.productQty}>{product.qty}</span>
+            <span className={`main ${styles.productQty}`}>{product.qty}</span>
             <button className={styles.incDecBtn} type="button">
               <BiMinus />
             </button>

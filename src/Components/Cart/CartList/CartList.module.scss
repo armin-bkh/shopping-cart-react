@@ -1,0 +1,15 @@
+.cartList {
+    display: flex;
+    flex-flow: column wrap;
+    width: 100%;
+
+    @media screen and (max-width: 767px) {
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .message {
+        color: #93C5FD;
+    }
+}
