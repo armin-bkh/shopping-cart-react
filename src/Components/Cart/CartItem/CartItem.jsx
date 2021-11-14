@@ -1,9 +1,30 @@
 import { BiTrash, BiPlus, BiMinus } from "react-icons/bi";
 import styles from "./CartItem.module.scss";
-import { useCartActions } from "../../../Provider/CartProvider";
+import { useCartActions, useCart } from "../../../Provider/CartProvider";
+import checkQtyProductInCart from "../../Utils/checkQtyProductInCart";
+import { useToasts } from "react-toast-notifications";
 
 const CartItem = ({ product }) => {
+  const { cart } = useCart();
   const dispatch = useCartActions();
+  const { addToast } = useToasts();
+
+  const decrementHandler = () => {
+    if (checkQtyProductInCart(cart, product.id) === 1) {
+      addToast(`${product.name} removed from cart`, { appearance: "success" });
+    } else
+      addToast(`the number of ${product.name} decreased`, {
+        appearance: "success",
+      });
+    dispatch({ type: "REMOVE_FROM_CART", payload: product });
+  };
+
+  const incrementHandler = () => {
+    addToast(`added to the number of ${product.name}`, {
+      appearance: "success",
+    });
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
 
   return (
     <article className={styles.cartItem}>
@@ -16,26 +37,24 @@ const CartItem = ({ product }) => {
           <span className={`main`}>${product.price * product.qty}</span>
         </div>
         <div className={styles.btnContainer}>
-            <button
-              onClick={() =>
-                dispatch({ type: "ADD_TO_CART", payload: product })
-              }
-              className={styles.incDecBtn}
-              type="button"
-            >
-              <BiPlus />
-            </button>
-            <span className={`main ${styles.productQty}`}>{product.qty}</span>
-            <button
-              onClick={() =>
-                dispatch({ type: "REMOVE_FROM_CART", payload: product })
-              }
-              className={`${styles.incDecBtn} ${product.qty === 1 && styles.delBtn}`}
-              type="button"
-            >
-              {product.qty > 1 ? <BiMinus /> : <BiTrash />}
-            </button>
-          </div>
+          <button
+            onClick={incrementHandler}
+            className={styles.incDecBtn}
+            type="button"
+          >
+            <BiPlus />
+          </button>
+          <span className={`main ${styles.productQty}`}>{product.qty}</span>
+          <button
+            onClick={decrementHandler}
+            className={`${styles.incDecBtn} ${
+              product.qty === 1 && styles.delBtn
+            }`}
+            type="button"
+          >
+            {product.qty > 1 ? <BiMinus /> : <BiTrash />}
+          </button>
+        </div>
       </div>
     </article>
   );
