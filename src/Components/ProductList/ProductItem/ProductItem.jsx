@@ -1,15 +1,19 @@
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { useToasts } from "react-toast-notifications";
-import { useCartActions } from "../../../Provider/CartProvider";
+import { useCartActions, useCart } from "../../../Provider/CartProvider";
 import styles from "./Product.module.scss";
+import checkInCart from '../../Utils/checkInCart';
 
 const ProductItem = ({ product }) => {
+  const { cart } = useCart();
   const dispatch = useCartActions();
   const { addToast } = useToasts();
 
   const addToCartHandler = () => {
-      dispatch({ type: "ADD_TO_CART", payload: product });
-      addToast(`${product.name} added to the cart`, { appearance: "success" });
+    if(checkInCart(cart, product.id)){
+addToast(`added to the number of ${product.name}`, { appearance: "success" });
+    } else addToast(`${product.name} added to the cart`, { appearance: "success" });
+    dispatch({ type: "ADD_TO_CART", payload: product });
   }
 
   return (
@@ -24,7 +28,7 @@ const ProductItem = ({ product }) => {
         type="button"
         className={`title ${styles.btn}`}
       >
-        add to cart
+      {checkInCart(cart, product.id) ? "In cart" : "Add to cart"}
         <MdOutlineAddShoppingCart className={styles.icon} />
       </button>
     </article>
