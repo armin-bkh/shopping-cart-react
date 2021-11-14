@@ -1,8 +1,10 @@
+import { useCart } from "../../../Provider/CartProvider";
 import styles from "./CartSummery.module.scss";
 
 const CartSummery = () => {
+  const { totalPrice } = useCart();
   return <section className={styles.cartSummery}>
-      cart summery
+      total: $ { totalPrice }
       </section>;
 };
 

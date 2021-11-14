@@ -7,9 +7,10 @@ const cartReducer = (state, action) => {
         const selectedItem = { ...cloneCart[index] };
         selectedItem.qty++;
         cloneCart[index] = selectedItem;
-        return { ...state, cart: cloneCart };
+        return { cart: cloneCart, totalPrice: state.totalPrice + selectedItem.price };
       }
-      return { ...state, cart: [...state.cart, { ...action.payload, qty: 1 }] };
+      return { cart: [...state.cart, { ...action.payload, qty: 1 }],
+       totalPrice: state.totalPrice + action.payload.price };
     }
     case "REMOVE_FROM_CART": {
       const cloneCart = [...state.cart];
@@ -19,11 +20,21 @@ const cartReducer = (state, action) => {
         const filteredCart = cloneCart.filter(
           (pr) => pr.id !== action.payload.id
         );
-        return { ...state, cart: filteredCart };
+        return { cart: filteredCart,
+         totalPrice: state.totalPrice - selectedItem.price };
       }
       selectedItem.qty--;
       cloneCart[index] = selectedItem;
-      return { ...state, cart: cloneCart };
+      return { cart: cloneCart,
+       totalPrice: state.totalPrice - selectedItem.price };
+    }
+    case "CALC_TOTALPRICE": {
+      const prices = state.cart.map((pr) => pr.price * pr.qty);
+      if (!prices.length) return {...state, totalPrice: 0};
+      const totalPrice = prices.reduce((total, num) => {
+        return total + num;
+      });
+      return { ...state, totalPrice };
     }
     default:
       return state;

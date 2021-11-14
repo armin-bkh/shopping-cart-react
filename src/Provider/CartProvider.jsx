@@ -10,6 +10,10 @@ const initialState = {
 const CartProvider = ({ children }) => {
   const [cart, dispatch] = useReducer(cartReducer, initialState);
 
+  // useEffect(()=> {
+  //   dispatch({type: "CALC_TOTALPRICE"})
+  // }, [cart.cart])
+
   return (
     <CartContext.Provider value={cart}>
       <CartContextDispatcher.Provider value={dispatch}>

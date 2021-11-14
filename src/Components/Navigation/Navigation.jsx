@@ -2,6 +2,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./Navigation.module.scss";
 import { AiFillHome } from "react-icons/ai";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { useCart } from "../../Provider/CartProvider";
 
 const navigation = [
   { to: "/", title: "home", icon: <AiFillHome /> },
@@ -9,6 +10,8 @@ const navigation = [
 ];
 
 const Navigation = () => {
+  const { cart } = useCart();
+
   return (
     <header>
       <nav className={styles.nav}>
@@ -23,7 +26,7 @@ const Navigation = () => {
                 to={nav.to}
               >
                 <span className={styles.icon}>{nav.icon}</span>
-                {nav.title}
+                {nav.title} {nav.to === "/cart" && cart.length > 0 && cart.length}
               </NavLink>
             </li>
           ))}
