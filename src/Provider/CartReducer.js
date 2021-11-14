@@ -7,10 +7,10 @@ const cartReducer = (state, action) => {
         const selectedItem = { ...cloneCart[index] };
         selectedItem.qty++;
         cloneCart[index] = selectedItem;
-        return { cart: cloneCart, totalPrice: state.totalPrice + selectedItem.price };
+        return { cart: cloneCart, totalPrice: state.totalPrice + selectedItem.offPrice };
       }
       return { cart: [...state.cart, { ...action.payload, qty: 1 }],
-       totalPrice: state.totalPrice + action.payload.price };
+       totalPrice: state.totalPrice + action.payload.offPrice };
     }
     case "REMOVE_FROM_CART": {
       const cloneCart = [...state.cart];
@@ -21,12 +21,12 @@ const cartReducer = (state, action) => {
           (pr) => pr.id !== action.payload.id
         );
         return { cart: filteredCart,
-         totalPrice: state.totalPrice - selectedItem.price };
+         totalPrice: state.totalPrice - selectedItem.offPrice };
       }
       selectedItem.qty--;
       cloneCart[index] = selectedItem;
       return { cart: cloneCart,
-       totalPrice: state.totalPrice - selectedItem.price };
+       totalPrice: state.totalPrice - selectedItem.offPrice };
     }
     case "CALC_TOTALPRICE": {
       const prices = state.cart.map((pr) => pr.price * pr.qty);

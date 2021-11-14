@@ -34,7 +34,7 @@ const CartItem = ({ product }) => {
       <div className={styles.description}>
         <div>
           <h1 className={`title`}>{product.name}</h1>
-          <span className={`main`}>${product.price * product.qty}</span>
+          <span className={`main`}>${product.offPrice * product.qty}</span>
         </div>
         <div className={styles.btnContainer}>
           <button

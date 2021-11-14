@@ -1,11 +1,45 @@
 .cartSummery{
+    display: flex;
+    flex-flow: column wrap;
     padding: 1rem;
     border-radius: 5px;
     box-shadow: 0 2px 5px #bbbbbb;
-    height: 15rem;
+    height: 18rem;
 
     @media screen and (max-width: 767px) {
         grid-row-start: 1;
         grid-row-end: 2;
+    }
+
+    h1{
+        color: #93C5FD;
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+    }
+
+
+    .cartDetail{
+        padding: 7px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &:not(:last-child){
+            margin-bottom: 10px;
+        }
+
+        &:last-of-type{
+            border-top: 1px solid #ccc;
+        }
+    }
+
+    .payBtn{
+        margin-top: auto;
+        width: 100%;
+        padding: 10px 0;
+        border-radius: 5px;
+        border: none;
+        background: #93C5FD;
+        color: #fff;
     }
 }
