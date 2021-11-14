@@ -33,7 +33,7 @@
         }
     }
 
-    .payBtn{
+    .checkout{
         margin-top: auto;
         width: 100%;
         padding: 10px 0;
@@ -41,5 +41,7 @@
         border: none;
         background: #93C5FD;
         color: #fff;
+        display: flex;
+        justify-content: center;
     }
 }

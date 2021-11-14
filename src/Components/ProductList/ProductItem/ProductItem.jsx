@@ -2,7 +2,7 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { useToasts } from "react-toast-notifications";
 import { useCartActions, useCart } from "../../../Provider/CartProvider";
 import styles from "./Product.module.scss";
-import checkInCart from '../../Utils/checkInCart';
+import checkInCart from "../../Utils/checkInCart";
 
 const ProductItem = ({ product }) => {
   const { cart } = useCart();
@@ -10,11 +10,14 @@ const ProductItem = ({ product }) => {
   const { addToast } = useToasts();
 
   const addToCartHandler = () => {
-    if(checkInCart(cart, product.id)){
-addToast(`added to the number of ${product.name}`, { appearance: "success" });
-    } else addToast(`${product.name} added to the cart`, { appearance: "success" });
+    if (checkInCart(cart, product.id)) {
+      addToast(`added to the number of ${product.name}`, {
+        appearance: "success",
+      });
+    } else
+      addToast(`${product.name} added to the cart`, { appearance: "success" });
     dispatch({ type: "ADD_TO_CART", payload: product });
-  }
+  };
 
   return (
     <article className={styles.card}>
@@ -28,7 +31,7 @@ addToast(`added to the number of ${product.name}`, { appearance: "success" });
         type="button"
         className={`title ${styles.btn}`}
       >
-      {checkInCart(cart, product.id) ? "In cart" : "Add to cart"}
+        {checkInCart(cart, product.id) ? "In cart" : "Add to cart"}
         <MdOutlineAddShoppingCart className={styles.icon} />
       </button>
     </article>

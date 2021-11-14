@@ -4,7 +4,7 @@ import Layout from "../Layouts/Layout";
 const CartPage = () => {
   return (
     <Layout>
-        <Cart />
+      <Cart />
     </Layout>
   );
 };

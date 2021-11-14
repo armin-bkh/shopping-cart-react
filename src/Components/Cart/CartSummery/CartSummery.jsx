@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { useCart } from "../../../Provider/CartProvider";
 import styles from "./CartSummery.module.scss";
 
@@ -11,18 +12,18 @@ const CartSummery = () => {
       <h1 className="headers">Cart summery</h1>
       <article className={`title ${styles.cartDetail}`}>
         <p>original total price: </p>
-        <span className={"main"}>$ {originalTotalPrice}</span>
+        <span className={"main"}>${originalTotalPrice}</span>
       </article>
       <article className={`title ${styles.cartDetail}`}>
         <p>cart discount: </p>
-        <span className={"main"}>$ {originalTotalPrice - totalPrice}</span>
+        <span className={"main"}>${originalTotalPrice - totalPrice}</span>
       </article>
       <article className={`title ${styles.cartDetail}`}>
-        <p>net total price: </p>
-        <span className={"main"}>$ {totalPrice}</span>
+        <p>net cart price: </p>
+        <span className={"main"}>${totalPrice}</span>
       </article>
 
-      <button className={`title ${styles.payBtn}`}>Pay cart</button>
+      <Link to="/checkout" className={`title ${styles.checkout}`}>go to checkout</Link>
     </section>
   );
 };
