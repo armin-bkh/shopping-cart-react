@@ -1,4 +1,5 @@
 import { useFormik } from "formik";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import Input from "../Common/Input/Input";
 import styles from "./SignupForm.module.scss";
@@ -70,6 +71,8 @@ const SignupForm = () => {
         >
           Submit
         </button>
+
+        <Link to="/login" className={styles.question}>Already login?</Link>
       </form>
     </main>
   );

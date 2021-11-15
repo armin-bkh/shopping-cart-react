@@ -1,15 +1,16 @@
 import { useFormik } from "formik";
+import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import Input from "../Common/Input/Input";
 import styles from "./LoginForm.module.scss";
 
 const initialValues = {
-  name: "",
+  email: "",
   password: "",
 };
 
 const validationSchema = Yup.object({
-  name: Yup.string().required("name is required"),
+  email: Yup.string().required("email is required").email("that is you entered not a email address"),
   password: Yup.string().required("password is required"),
 });
 
@@ -33,7 +34,7 @@ const LoginForm = () => {
         onSubmit={formik.handleSubmit}
       >
         <h1 className={"headers"}>Login</h1>
-        <Input name="name" lbl="Name" formik={formik} />
+        <Input name="email" lbl="Email" formik={formik} />
         <Input name="password" lbl="Password" formik={formik} type="password" />
         <button
           className={`title ${styles.submitBtn}`}
@@ -42,6 +43,7 @@ const LoginForm = () => {
         >
           submit
         </button>
+        <Link to="/signup" className={styles.question}>Not signup yet?</Link>
       </form>
     </main>
   );
