@@ -34,7 +34,7 @@ const LoginForm = () => {
       >
         <h1 className={"headers"}>Login</h1>
         <Input name="name" lbl="Name" formik={formik} />
-        <Input name="password" lbl="Password" formik={formik} />
+        <Input name="password" lbl="Password" formik={formik} type="password" />
         <button
           className={`title ${styles.submitBtn}`}
           type="submit"
