@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import * as Yup from "yup";
 import Input from "../Common/Input/Input";
 import styles from "./LoginForm.module.scss";
+import postLogin from "../../Services/postLogin";
+import { useState } from "react";
+import { useToasts } from "react-toast-notifications";
 
 const initialValues = {
   email: "",
@@ -10,15 +13,29 @@ const initialValues = {
 };
 
 const validationSchema = Yup.object({
-  email: Yup.string().required("email is required").email("that is you entered not a email address"),
+  email: Yup.string()
+    .required("email is required")
+    .email("that is you entered not a email address"),
   password: Yup.string().required("password is required"),
 });
 
-const onSubmit = (values) => {
-  console.log(values);
-};
-
 const LoginForm = () => {
+  const [error, setError] = useState(null);
+  const { addToast } = useToasts();
+
+  const onSubmit = async (values) => {
+    console.log(values);
+    try {
+      const { data } = await postLogin(values);
+      setError(null);
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        addToast(error.response.data.message, { appearance: "error" });
+        setError(error.response.data.message);
+      }
+    }
+  };
+
   const formik = useFormik({
     initialValues,
     onSubmit,
@@ -36,6 +53,7 @@ const LoginForm = () => {
         <h1 className={"headers"}>Login</h1>
         <Input name="email" lbl="Email" formik={formik} />
         <Input name="password" lbl="Password" formik={formik} type="password" />
+        {error && <span className={`title ${styles.error}`}>{error}</span>}
         <button
           className={`title ${styles.submitBtn}`}
           type="submit"
@@ -43,7 +61,9 @@ const LoginForm = () => {
         >
           submit
         </button>
-        <Link to="/signup" className={styles.question}>Not signup yet?</Link>
+        <Link to="/signup" className={styles.question}>
+          Not signup yet?
+        </Link>
       </form>
     </main>
   );
