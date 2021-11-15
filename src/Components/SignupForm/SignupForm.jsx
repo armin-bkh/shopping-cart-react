@@ -1,6 +1,6 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import * as Yup from "yup";
 import postSignup from "../../Services/postSignup";
@@ -25,7 +25,7 @@ const validationSchema = Yup.object({
     .matches(/^[0-9]{11}$/, "that is you entered not a phone number"),
   password: Yup.string()
     .required("password is required")
-    .min(8, "password length should be greate than 6"),
+    .min(8, "password length should be greate than 8"),
   passwordConfirmation: Yup.string("password confirmatin is required").required("password confirmation is required").oneOf(
     [Yup.ref("password"), null],
     "Passwords must match"
@@ -46,14 +46,16 @@ const validationSchema = Yup.object({
 const SignupForm = () => {
   const [error, setError] = useState(null);
   const { addToast } = useToasts();
+  const navigate = useNavigate(); 
 
   const onSubmit = async (values) => {
     const { name, email, phoneNumber, password } = values;
     const userData = { name, email, phoneNumber, password };
-    console.log(values);
     try {
       const {  data } = await postSignup(userData);
-      setError(null)
+      localStorage.setItem('userToken', data.token);
+      setError(null);
+      navigate("/", { replace: true })
     } catch (error) {
       if(error.response && error.response.data.message){
         setError(error.response.data.message);

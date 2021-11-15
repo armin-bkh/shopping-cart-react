@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Input from "../Common/Input/Input";
 import styles from "./LoginForm.module.scss";
@@ -20,14 +20,16 @@ const validationSchema = Yup.object({
 });
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [error, setError] = useState(null);
   const { addToast } = useToasts();
 
   const onSubmit = async (values) => {
-    console.log(values);
     try {
       const { data } = await postLogin(values);
+      localStorage.setItem('userToken', data.token);
       setError(null);
+      navigate('/', { replace: true })
     } catch (error) {
       if (error.response && error.response.data.message) {
         addToast(error.response.data.message, { appearance: "error" });
