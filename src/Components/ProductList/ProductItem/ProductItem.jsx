@@ -10,7 +10,7 @@ const ProductItem = ({ product }) => {
   const { addToast } = useToasts();
 
   const addToCartHandler = () => {
-    if (checkInCart(cart, product.id)) {
+    if (checkInCart(cart, product._id)) {
       addToast(`added to the number of ${product.name}`, {
         appearance: "success",
       });
@@ -31,7 +31,7 @@ const ProductItem = ({ product }) => {
         type="button"
         className={`title ${styles.btn}`}
       >
-        {checkInCart(cart, product.id) ? "In cart" : "Add to cart"}
+        {checkInCart(cart, product._id) ? "In cart" : "Add to cart"}
         <MdOutlineAddShoppingCart className={styles.icon} />
       </button>
     </article>

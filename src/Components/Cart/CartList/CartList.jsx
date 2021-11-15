@@ -8,7 +8,7 @@ const CartList = () => {
   return (
     <section className={styles.cartList}>
       {cart.length ? (
-        cart.map((item) => <CartItem key={item.id} product={item} />)
+        cart.map((item) => <CartItem key={item._id} product={item} />)
       ) : (
         <h1 className={`headers ${styles.message}`}>your cart is emptey</h1>
       )}

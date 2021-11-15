@@ -1,4 +1,5 @@
 .productList {
+    min-height: 100vh;
     margin: auto;
     padding: 3rem;
     display: grid;
@@ -7,4 +8,8 @@
     width: 100%;
     row-gap: 2rem;
     column-gap: 3rem;
+}
+
+.Loading{
+    color: #93C5FD;
 }

@@ -10,7 +10,7 @@ const CartItem = ({ product }) => {
   const { addToast } = useToasts();
 
   const decrementHandler = () => {
-    if (checkQtyProductInCart(cart, product.id) === 1) {
+    if (checkQtyProductInCart(cart, product._id) === 1) {
       addToast(`${product.name} removed from cart`, { appearance: "success" });
     } else
       addToast(`the number of ${product.name} decreased`, {

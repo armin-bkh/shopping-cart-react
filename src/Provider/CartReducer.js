@@ -1,9 +1,9 @@
 const cartReducer = (state, action) => {
   switch (action.type) {
     case "ADD_TO_CART": {
-      if (state.cart.some((pr) => pr.id === action.payload.id)) {
+      if (state.cart.some((pr) => pr._id === action.payload._id)) {
         const cloneCart = [...state.cart];
-        const index = state.cart.findIndex((pr) => pr.id === action.payload.id);
+        const index = state.cart.findIndex((pr) => pr._id === action.payload._id);
         const selectedItem = { ...cloneCart[index] };
         selectedItem.qty++;
         cloneCart[index] = selectedItem;
@@ -14,11 +14,11 @@ const cartReducer = (state, action) => {
     }
     case "REMOVE_FROM_CART": {
       const cloneCart = [...state.cart];
-      const index = state.cart.findIndex((pr) => pr.id === action.payload.id);
+      const index = state.cart.findIndex((pr) => pr._id === action.payload._id);
       const selectedItem = { ...cloneCart[index] };
       if (selectedItem.qty === 1) {
         const filteredCart = cloneCart.filter(
-          (pr) => pr.id !== action.payload.id
+          (pr) => pr._id !== action.payload._id
         );
         return { cart: filteredCart,
          totalPrice: state.totalPrice - selectedItem.offPrice };

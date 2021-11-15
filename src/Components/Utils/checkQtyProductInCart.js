@@ -1,5 +1,5 @@
 const checkQtyProductInCart = (cart, id) => {
-    const selectedItem = cart.find(product => product.id === id);
+    const selectedItem = cart.find(product => product._id === id);
     return selectedItem.qty;
 }
 
