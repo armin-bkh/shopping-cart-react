@@ -49,15 +49,25 @@ const SignupForm = () => {
       >
         <h1 className={`headers`}>Signup</h1>
         <Input name="name" lbl="Name" formik={formik} />
-        <Input name="phoneNumber" lbl="Phone number" formik={formik} />
-        <Input name="email" lbl="Email" formik={formik} />
-        <Input name="password" lbl="Password" formik={formik} />
+        <Input
+          name="phoneNumber"
+          lbl="Phone number"
+          formik={formik}
+          type="tel"
+        />
+        <Input name="email" lbl="Email" formik={formik} type="email" />
+        <Input name="password" lbl="Password" formik={formik} type="password" />
         <Input
           name="passwordConfirmation"
           lbl="Password confirmation"
           formik={formik}
+          type="password"
         />
-        <button className={styles.submitBtn} type="submit" disabled={!formik.isValid}>
+        <button
+          className={`title ${styles.submitBtn}`}
+          type="submit"
+          disabled={!formik.isValid}
+        >
           Submit
         </button>
       </form>

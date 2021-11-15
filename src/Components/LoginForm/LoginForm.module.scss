@@ -1,0 +1,33 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+
+    .loginFormContainer {
+        width: 25rem;
+        display: flex;
+        flex-flow: column wrap;
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px #bbbbbb;
+
+        h1 {
+            margin-bottom: 20px;
+            color: #93C5FD;
+        }
+
+        .submitBtn {
+            margin-top: 20px;
+            border-radius: 5px;
+            border: none;
+            padding: 10px 0;
+            background: #93C5FD;
+            color: #fff;
+
+            &:disabled {
+                opacity: .5;
+            }
+        }
+    }
+}
