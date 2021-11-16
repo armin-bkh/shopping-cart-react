@@ -1,0 +1,39 @@
+.container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .card {
+        padding: 1rem;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px #bbbbbb;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+
+        .profile {
+            font-size: 10rem;
+            color: #93C5FD;
+
+            @media screen and (max-width: 767px) {
+                font-size: 6rem;
+            }
+        }
+
+        .name {
+            color: #93C5FD;
+            margin: -30px 0 30px;
+        }
+
+        li {
+            display: flex;
+            align-items: center;
+
+            .icon {
+                color: #93C5FD;
+                margin-right: 7px;
+            }
+        }
+    }
+}

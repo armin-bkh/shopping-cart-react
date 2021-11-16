@@ -3,6 +3,7 @@ import CartPage from '../Pages/CartPage';
 import CheckoutPage from '../Pages/CheckoutPage';
 import LoginPage from '../Pages/loginPage';
 import SignupPage from '../Pages/SignupPage';
+import ProfilePage from '../Pages/ProfilePage';
 
 export const routes = [
     {path: "/", element: <HomePage /> },
@@ -10,4 +11,5 @@ export const routes = [
     {path: "/checkout", element: <CheckoutPage /> },
     {path: "/login", element: <LoginPage /> },
     {path: "/signup", element: <SignupPage /> },
+    {path: "/profile", element: <ProfilePage /> },
 ]
