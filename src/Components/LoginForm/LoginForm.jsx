@@ -6,6 +6,7 @@ import styles from "./LoginForm.module.scss";
 import postLogin from "../../Services/postLogin";
 import { useState } from "react";
 import { useToasts } from "react-toast-notifications";
+import { useAuthActions } from "../../Provider/AuthProvider";
 
 const initialValues = {
   email: "",
@@ -20,6 +21,7 @@ const validationSchema = Yup.object({
 });
 
 const LoginForm = () => {
+  const setAuth = useAuthActions();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const { addToast } = useToasts();
@@ -27,9 +29,10 @@ const LoginForm = () => {
   const onSubmit = async (values) => {
     try {
       const { data } = await postLogin(values);
-      localStorage.setItem('userToken', data.token);
+      setAuth(data);
+      localStorage.setItem("userToken", JSON.stringify(data));
       setError(null);
-      navigate('/', { replace: true })
+      navigate("/", { replace: true });
     } catch (error) {
       if (error.response && error.response.data.message) {
         addToast(error.response.data.message, { appearance: "error" });

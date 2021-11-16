@@ -3,6 +3,7 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import * as Yup from "yup";
+import { useAuthActions } from "../../Provider/AuthProvider";
 import postSignup from "../../Services/postSignup";
 import Input from "../Common/Input/Input";
 import styles from "./SignupForm.module.scss";
@@ -44,6 +45,7 @@ const validationSchema = Yup.object({
 // };
 
 const SignupForm = () => {
+  const setAuth = useAuthActions();
   const [error, setError] = useState(null);
   const { addToast } = useToasts();
   const navigate = useNavigate(); 
@@ -53,7 +55,8 @@ const SignupForm = () => {
     const userData = { name, email, phoneNumber, password };
     try {
       const {  data } = await postSignup(userData);
-      localStorage.setItem('userToken', data.token);
+      setAuth(data);
+      localStorage.setItem('userToken', JSON.stringify(data));
       setError(null);
       navigate("/", { replace: true })
     } catch (error) {
