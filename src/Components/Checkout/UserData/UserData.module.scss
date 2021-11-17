@@ -1,0 +1,45 @@
+.container {
+    margin: 1rem;
+    position: relative;
+
+    @media screen and (max-width: 767px) {
+        grid-row: 1 / 2;
+    }
+
+    .card {
+        z-index: -1;
+        position: sticky;
+        top: 6.5rem;
+        border-radius: 5px;
+        display: flex;
+        flex-flow: column wrap;
+        align-items: center;
+        padding: 1rem;
+
+        color: #fff;
+
+        background: #93C5FD;
+
+        .profile {
+            font-size: 10rem;
+
+            @media screen and (max-width: 767px) {
+                font-size: 7rem;
+            }
+        }
+
+        .name {
+            margin-bottom: 30px;
+        }
+
+        .item {
+            padding: 5px 0;
+            display: flex;
+            align-items: center;
+
+            svg {
+                margin-right: 7px;
+            }
+        }
+    }
+}

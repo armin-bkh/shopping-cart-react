@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router";
 import { useAuth } from "../../Provider/AuthProvider";
+import styles from './Checkout.module.scss';
+import UserData from "./UserData/UserData";
 
 const Checkout = () => {
     const auth = useAuth();
@@ -14,8 +16,9 @@ const Checkout = () => {
     }, [])
 
     return ( 
-        <main>
-            <h1>checkout page</h1>
+        <main className={styles.container}>
+            <section></section>
+            <UserData auth={auth} />
         </main>
      );
 }
