@@ -56,7 +56,6 @@ const SignupForm = () => {
     try {
       const {  data } = await postSignup(userData);
       setAuth(data);
-      localStorage.setItem('userToken', JSON.stringify(data));
       setError(null);
       navigate("/", { replace: true })
     } catch (error) {

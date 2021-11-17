@@ -17,7 +17,7 @@ const navigation = [
 const logedInNavigation = [
   { to: "/", title: "home", icon: <AiFillHome /> },
   { to: "/cart", title: "cart", icon: <HiOutlineShoppingCart /> },
-  { to: "/profile", icon: <FaUserAlt /> },
+  { to: "/profile", title: "profile", icon: <FaUserAlt /> },
 ];
 
 const Navigation = () => {
@@ -42,7 +42,7 @@ const Navigation = () => {
                     to={nav.to}
                   >
                     <span className={styles.icon}>{nav.icon}</span>
-                    {nav.to === "/profile" ? auth.name : nav.title}
+                    {nav.title}
                     {nav.to === "/cart" && cart.length > 0 && cart.length}
                   </NavLink>
                 </li>

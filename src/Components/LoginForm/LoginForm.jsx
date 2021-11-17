@@ -30,7 +30,6 @@ const LoginForm = () => {
     try {
       const { data } = await postLogin(values);
       setAuth(data);
-      localStorage.setItem("userToken", JSON.stringify(data));
       setError(null);
       navigate("/", { replace: true });
     } catch (error) {
