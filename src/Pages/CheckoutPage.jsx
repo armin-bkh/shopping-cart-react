@@ -1,11 +1,10 @@
+import Checkout from "../Components/Checkout/Checkout";
 import Layout from "../Layouts/Layout";
 
 const CheckoutPage = () => {
   return (
     <Layout>
-      <main style={{minHeight: "100vh"}}>
-        <h1>checkout page</h1>
-      </main>
+      <Checkout />
     </Layout>
   );
 };

@@ -1,11 +1,12 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import * as Yup from "yup";
 import { useAuthActions } from "../../Provider/AuthProvider";
 import postSignup from "../../Services/postSignup";
 import Input from "../Common/Input/Input";
+import queryString from 'query-string';
 import styles from "./SignupForm.module.scss";
 
 const initialValues = {
@@ -33,22 +34,12 @@ const validationSchema = Yup.object({
   ),
 });
 
-// const onSubmit = async (values) => {
-//   const { name, email, phoneNumber, password } = values;
-//   const userData = { name, email, phoneNumber, password };
-//   console.log(values);
-//   try {
-//     const {data} = await postSignup(userData);
-//   } catch (error) {
-//     console.log(error)
-//   }
-// };
-
 const SignupForm = () => {
   const setAuth = useAuthActions();
   const [error, setError] = useState(null);
   const { addToast } = useToasts();
   const navigate = useNavigate(); 
+  const { search } = useLocation();
 
   const onSubmit = async (values) => {
     const { name, email, phoneNumber, password } = values;
@@ -57,6 +48,11 @@ const SignupForm = () => {
       const {  data } = await postSignup(userData);
       setAuth(data);
       setError(null);
+      if(search){
+        const searchs = queryString.parse(search);
+        navigate(`/${searchs._back}`, { replace: true });
+        return;
+      }
       navigate("/", { replace: true })
     } catch (error) {
       if(error.response && error.response.data.message){
@@ -105,7 +101,7 @@ const SignupForm = () => {
           Submit
         </button>
 
-        <Link to="/login" className={styles.question}>Already login?</Link>
+        <Link to={search ? { pathname: "/login", search } : "/login"} className={styles.question}>Already login?</Link>
       </form>
     </main>
   );
