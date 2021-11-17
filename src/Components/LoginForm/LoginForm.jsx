@@ -1,5 +1,5 @@
 import { useFormik } from "formik";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as Yup from "yup";
 import Input from "../Common/Input/Input";
 import styles from "./LoginForm.module.scss";
@@ -7,7 +7,7 @@ import postLogin from "../../Services/postLogin";
 import { useState } from "react";
 import { useToasts } from "react-toast-notifications";
 import { useAuthActions } from "../../Provider/AuthProvider";
-import queryString from 'query-string';
+import { useQuery } from "../../hooks/useQuery";
 
 const initialValues = {
   email: "",
@@ -24,9 +24,9 @@ const validationSchema = Yup.object({
 const LoginForm = () => {
   const setAuth = useAuthActions();
   const navigate = useNavigate();
-  const { search } = useLocation();
   const [error, setError] = useState(null);
   const { addToast } = useToasts();
+  const [{ redirect } , search] = useQuery();
 
 
   const onSubmit = async (values) => {
@@ -34,9 +34,8 @@ const LoginForm = () => {
       const { data } = await postLogin(values);
       setAuth(data);
       setError(null);
-      if(search){
-        const searchs = queryString.parse(search);
-        navigate(`/${searchs._back}`, { replace: true });
+      if(redirect){
+        navigate(`/${redirect}`, { replace: true });
         return;
       }
       navigate("/", { replace: true });

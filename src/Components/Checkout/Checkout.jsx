@@ -9,7 +9,7 @@ const Checkout = () => {
     useEffect(()=> {
         if(!auth) navigate({
             pathname: "/login",
-            search: "_back=checkout",
+            search: "redirect=checkout",
         })
     }, [])
 

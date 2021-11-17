@@ -1,13 +1,13 @@
 import { useFormik } from "formik";
 import { useState } from "react";
-import { Link, useNavigate, useLocation } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import * as Yup from "yup";
 import { useAuthActions } from "../../Provider/AuthProvider";
 import postSignup from "../../Services/postSignup";
 import Input from "../Common/Input/Input";
-import queryString from 'query-string';
 import styles from "./SignupForm.module.scss";
+import { useQuery } from "../../hooks/useQuery";
 
 const initialValues = {
   name: "",
@@ -39,7 +39,8 @@ const SignupForm = () => {
   const [error, setError] = useState(null);
   const { addToast } = useToasts();
   const navigate = useNavigate(); 
-  const { search } = useLocation();
+  const [{ redirect } , search] = useQuery();
+
 
   const onSubmit = async (values) => {
     const { name, email, phoneNumber, password } = values;
@@ -48,9 +49,8 @@ const SignupForm = () => {
       const {  data } = await postSignup(userData);
       setAuth(data);
       setError(null);
-      if(search){
-        const searchs = queryString.parse(search);
-        navigate(`/${searchs._back}`, { replace: true });
+      if(redirect){
+        navigate(`/${redirect}`, { replace: true });
         return;
       }
       navigate("/", { replace: true })
