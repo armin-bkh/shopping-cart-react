@@ -4,9 +4,9 @@ import * as Yup from "yup";
 import Input from "../Common/Input/Input";
 import styles from "./LoginForm.module.scss";
 import postLogin from "../../Services/postLogin";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useToasts } from "react-toast-notifications";
-import { useAuthActions } from "../../Provider/AuthProvider";
+import { useAuth, useAuthActions } from "../../Provider/AuthProvider";
 import { useQuery } from "../../hooks/useQuery";
 
 const initialValues = {
@@ -22,12 +22,16 @@ const validationSchema = Yup.object({
 });
 
 const LoginForm = () => {
+  const auth = useAuth();
   const setAuth = useAuthActions();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const { addToast } = useToasts();
   const [{ redirect } , search] = useQuery();
 
+  useEffect(()=> {
+    if(auth && redirect) navigate(`/${redirect}`, { replace: true });
+  }, [auth])
 
   const onSubmit = async (values) => {
     try {

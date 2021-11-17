@@ -4,7 +4,7 @@ import { useCartActions, useCart } from "../../../Provider/CartProvider";
 import checkQtyProductInCart from "../../Utils/checkQtyProductInCart";
 import { useToasts } from "react-toast-notifications";
 
-const CartItem = ({ product }) => {
+const CartItem = ({ product, disable }) => {
   const { cart } = useCart();
   const dispatch = useCartActions();
   const { addToast } = useToasts();
@@ -36,25 +36,27 @@ const CartItem = ({ product }) => {
           <h1 className={`title`}>{product.name}</h1>
           <span className={`main`}>${product.offPrice * product.qty}</span>
         </div>
-        <div className={styles.btnContainer}>
-          <button
-            onClick={incrementHandler}
-            className={styles.incDecBtn}
-            type="button"
-          >
-            <BiPlus />
-          </button>
-          <span className={`main ${styles.productQty}`}>{product.qty}</span>
-          <button
-            onClick={decrementHandler}
-            className={`${styles.incDecBtn} ${
-              product.qty === 1 && styles.delBtn
-            }`}
-            type="button"
-          >
-            {product.qty > 1 ? <BiMinus /> : <BiTrash />}
-          </button>
-        </div>
+        {!disable && (
+          <div className={styles.btnContainer}>
+            <button
+              onClick={incrementHandler}
+              className={styles.incDecBtn}
+              type="button"
+            >
+              <BiPlus />
+            </button>
+            <span className={`main ${styles.productQty}`}>{product.qty}</span>
+            <button
+              onClick={decrementHandler}
+              className={`${styles.incDecBtn} ${
+                product.qty === 1 && styles.delBtn
+              }`}
+              type="button"
+            >
+              {product.qty > 1 ? <BiMinus /> : <BiTrash />}
+            </button>
+          </div>
+        )}
       </div>
     </article>
   );

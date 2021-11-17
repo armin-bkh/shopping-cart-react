@@ -1,5 +1,4 @@
 .container {
-    margin: 1rem;
     position: relative;
 
     @media screen and (max-width: 767px) {
@@ -9,7 +8,7 @@
     .card {
         z-index: -1;
         position: sticky;
-        top: 6.5rem;
+        top: 6.3rem;
         border-radius: 5px;
         display: flex;
         flex-flow: column wrap;

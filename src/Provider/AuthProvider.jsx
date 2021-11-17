@@ -6,8 +6,8 @@ const LOCAL_STORAGE_AUTH = "AuthData";
 const AuthProvider = ({ children }) => {
   const [auth, setAuth] = useState(null);
 
-  useEffect(()=> {
-    setAuth(JSON.parse(localStorage.getItem(LOCAL_STORAGE_AUTH)));
+  useEffect(async ()=> {
+    await setAuth(JSON.parse(localStorage.getItem(LOCAL_STORAGE_AUTH)));
   }, [])
 
   useEffect(()=> {
