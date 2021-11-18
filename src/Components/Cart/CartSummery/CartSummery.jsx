@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
+import { useAuth } from "../../../Provider/AuthProvider";
 import { useCart } from "../../../Provider/CartProvider";
 import styles from "./CartSummery.module.scss";
 
 const CartSummery = () => {
+  const auth = useAuth();
   const { cart, totalPrice } = useCart();
   const originalTotalPrice = cart.length
     ? cart.reduce((total, curr) => total + curr.price * curr.qty, 0)
@@ -23,7 +25,16 @@ const CartSummery = () => {
         <span className={"main"}>${totalPrice}</span>
       </article>
 
-      <Link to="/checkout" className={`title ${styles.checkout}`}>go to checkout</Link>
+      <Link
+        to={
+          auth
+            ? "/checkout"
+            : { pathname: "/login", search: "redirect=checkout" }
+        }
+        className={`title ${styles.checkout}`}
+      >
+        go to checkout
+      </Link>
     </section>
   );
 };

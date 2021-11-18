@@ -2,9 +2,10 @@ import { FaUser } from "react-icons/fa";
 import styles from "./UserData.module.scss";
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { MdOutlineMailOutline } from "react-icons/md";
-import { useEffect } from "react";
+import { useCart } from "../../../Provider/CartProvider";
 
 const UserData = ({ auth }) => {
+  const { total } = useCart();
 
   return (
     <section className={styles.container}>

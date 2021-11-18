@@ -22,16 +22,11 @@ const validationSchema = Yup.object({
 });
 
 const LoginForm = () => {
-  const auth = useAuth();
   const setAuth = useAuthActions();
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const { addToast } = useToasts();
   const [{ redirect } , search] = useQuery();
-
-  useEffect(()=> {
-    if(auth && redirect) navigate(`/${redirect}`, { replace: true });
-  }, [auth])
 
   const onSubmit = async (values) => {
     try {
