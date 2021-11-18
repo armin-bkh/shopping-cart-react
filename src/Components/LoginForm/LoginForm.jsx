@@ -4,9 +4,10 @@ import * as Yup from "yup";
 import Input from "../Common/Input/Input";
 import styles from "./LoginForm.module.scss";
 import postLogin from "../../Services/postLogin";
-import { useEffect, useState } from "react";
+import WithGaurd from "../HOC/WithGaurd";
+import { useState } from "react";
 import { useToasts } from "react-toast-notifications";
-import { useAuth, useAuthActions } from "../../Provider/AuthProvider";
+import { useAuthActions } from "../../Provider/AuthProvider";
 import { useQuery } from "../../hooks/useQuery";
 
 const initialValues = {
@@ -26,14 +27,14 @@ const LoginForm = () => {
   const navigate = useNavigate();
   const [error, setError] = useState(null);
   const { addToast } = useToasts();
-  const [{ redirect } , search] = useQuery();
+  const [{ redirect }, search] = useQuery();
 
   const onSubmit = async (values) => {
     try {
       const { data } = await postLogin(values);
       setAuth(data);
       setError(null);
-      if(redirect){
+      if (redirect) {
         navigate(`/${redirect}`, { replace: true });
         return;
       }
@@ -71,7 +72,10 @@ const LoginForm = () => {
         >
           submit
         </button>
-        <Link to={search ? {pathname: "/signup", search} : '/signup'} className={styles.question}>
+        <Link
+          to={search ? { pathname: "/signup", search } : "/signup"}
+          className={styles.question}
+        >
           Not signup yet?
         </Link>
       </form>
@@ -79,4 +83,4 @@ const LoginForm = () => {
   );
 };
 
-export default LoginForm;
+export default WithGaurd(LoginForm);

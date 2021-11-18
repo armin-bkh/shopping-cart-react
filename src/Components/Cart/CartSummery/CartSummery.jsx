@@ -5,7 +5,6 @@ import originalTotalPrice from "../../Utils/originalTotalPrice";
 import styles from "./CartSummery.module.scss";
 
 const CartSummery = () => {
-  const auth = useAuth();
   const { cart, totalPrice } = useCart();
   
   return (
@@ -25,11 +24,7 @@ const CartSummery = () => {
       </article>
 
       <Link
-        to={
-          auth
-            ? "/checkout"
-            : { pathname: "/login", search: "redirect=checkout" }
-        }
+        to={{pathname: "/login", search: "redirect=checkout"}}
         className={`title ${styles.checkout}`}
       >
         go to checkout

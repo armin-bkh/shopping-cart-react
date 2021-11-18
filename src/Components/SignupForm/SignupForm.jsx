@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useToasts } from "react-toast-notifications";
 import * as Yup from "yup";
 import { useAuthActions } from "../../Provider/AuthProvider";
+import WithGaurd from "../HOC/WithGaurd";
 import postSignup from "../../Services/postSignup";
 import Input from "../Common/Input/Input";
 import styles from "./SignupForm.module.scss";
@@ -107,4 +108,4 @@ const SignupForm = () => {
   );
 };
 
-export default SignupForm;
+export default WithGaurd(SignupForm);
