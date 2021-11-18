@@ -6,7 +6,7 @@
     }
 
     .card {
-        z-index: -1;
+        z-index: 99;
         position: sticky;
         top: 6.3rem;
         border-radius: 5px;
@@ -39,6 +39,40 @@
             svg {
                 margin-right: 7px;
             }
+        }
+
+        .totalList {
+            width: 100%;
+
+            .total {
+                width: 100%;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 5px 0;
+
+                span {
+                    display: flex;
+                    align-items: center;
+                }
+
+
+                &:last-child {
+                    margin-top: 10px;
+                    border-top: 1px #fff solid;
+                }
+            }
+        }
+
+        .payBtn{
+            margin-top: 2rem;
+            border: none;
+            outline: none;
+            padding: 10px 0;
+            background-color: #fff;
+            color: #93C5FD;
+            width: 100%;
+            border-radius: 5px;
         }
     }
 }

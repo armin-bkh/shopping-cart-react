@@ -1,11 +1,17 @@
 import { FaUser } from "react-icons/fa";
 import styles from "./UserData.module.scss";
 import { BsFillTelephoneFill } from "react-icons/bs";
-import { MdOutlineMailOutline } from "react-icons/md";
+import {
+  MdOutlineMailOutline,
+  MdPriceCheck,
+  MdMoneyOff,
+  MdOutlineAttachMoney,
+} from "react-icons/md";
 import { useCart } from "../../../Provider/CartProvider";
+import originalTotalPrice from "../../Utils/originalTotalPrice";
 
 const UserData = ({ auth }) => {
-  const { total } = useCart();
+  const { cart, totalPrice } = useCart();
 
   return (
     <section className={styles.container}>
@@ -21,6 +27,30 @@ const UserData = ({ auth }) => {
               <MdOutlineMailOutline /> email: {auth.email}
             </li>
           </ul>
+          <ul className={styles.totalList}>
+            <li className={`main ${styles.total}`}>
+              <span>
+                <MdOutlineAttachMoney /> original total price:
+              </span>
+              ${originalTotalPrice(cart)}
+            </li>
+            <li className={`main ${styles.total}`}>
+              <span>
+                <MdMoneyOff /> disconut:
+              </span>
+              ${originalTotalPrice(cart) - totalPrice}
+            </li>
+            <li className={`main ${styles.total}`}>
+              <span>
+                <MdPriceCheck /> total price:
+              </span>
+              ${totalPrice}
+            </li>
+          </ul>
+
+          <button type="button" className={styles.payBtn}>
+            pay
+          </button>
         </article>
       )}
     </section>

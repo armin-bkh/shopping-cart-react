@@ -1,24 +1,23 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../../Provider/AuthProvider";
 import { useCart } from "../../../Provider/CartProvider";
+import originalTotalPrice from "../../Utils/originalTotalPrice";
 import styles from "./CartSummery.module.scss";
 
 const CartSummery = () => {
   const auth = useAuth();
   const { cart, totalPrice } = useCart();
-  const originalTotalPrice = cart.length
-    ? cart.reduce((total, curr) => total + curr.price * curr.qty, 0)
-    : 0;
+  
   return (
     <section className={styles.cartSummery}>
       <h1 className="headers">Cart summery</h1>
       <article className={`title ${styles.cartDetail}`}>
         <p>original total price: </p>
-        <span className={"main"}>${originalTotalPrice}</span>
+        <span className={"main"}>${originalTotalPrice(cart)}</span>
       </article>
       <article className={`title ${styles.cartDetail}`}>
         <p>cart discount: </p>
-        <span className={"main"}>${originalTotalPrice - totalPrice}</span>
+        <span className={"main"}>${originalTotalPrice(cart) - totalPrice}</span>
       </article>
       <article className={`title ${styles.cartDetail}`}>
         <p>net cart price: </p>

@@ -1,5 +1,3 @@
-import { useEffect } from "react";
-import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../Provider/AuthProvider";
 import { useCart } from "../../Provider/CartProvider";
