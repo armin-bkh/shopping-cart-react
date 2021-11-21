@@ -22,8 +22,8 @@ const ProductList = () => {
   }, []);
 
   return (
-    <main className={styles.container}>
-      <section className={styles.productList}>
+    <main>
+      <section className={`z-10 relative ${styles.productList}`}>
         {products ? (
           products.map((pr) => <ProductItem key={pr._id} product={pr} />)
         ) : (
