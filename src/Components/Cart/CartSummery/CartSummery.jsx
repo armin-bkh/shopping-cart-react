@@ -9,23 +9,23 @@ const CartSummery = () => {
   
   return (
     <section className={styles.cartSummery}>
-      <h1 className="headers">Cart summery</h1>
+      <h1 className="headers text-yellow-600 mb-5 text-xl">Cart summery</h1>
       <article className={`title ${styles.cartDetail}`}>
         <p>original total price: </p>
-        <span className={"main"}>${originalTotalPrice(cart)}</span>
+        <span className={"main text-blue-600"}>${originalTotalPrice(cart)}</span>
       </article>
       <article className={`title ${styles.cartDetail}`}>
         <p>cart discount: </p>
-        <span className={"main"}>${originalTotalPrice(cart) - totalPrice}</span>
+        <span className={"main text-blue-600"}>${originalTotalPrice(cart) - totalPrice}</span>
       </article>
       <article className={`title ${styles.cartDetail}`}>
         <p>net cart price: </p>
-        <span className={"main"}>${totalPrice}</span>
+        <span className={"main text-blue-600"}>${totalPrice}</span>
       </article>
 
       <Link
         to={{pathname: "/login", search: "redirect=checkout"}}
-        className={`title ${styles.checkout}`}
+        className={`title text-white mt-auto flex justify-center items-center rounded-md py-3 bg-gray-900`}
       >
         go to checkout
       </Link>

@@ -24,47 +24,6 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-        padding: 20px;
-
-        .btnContainer {
-            height: 100%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            .incDecBtn {
-                color: #93C5FD;
-                border: 1px solid #93C5FD;
-                background: transparent;
-                border-radius: 50%;
-                width: 23px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                height: 23px;
-                font-size: 1rem;
-                transition: all .3s ease;
-
-                &:hover {
-                    background-color: #93C5FD;
-                    color: #fff;
-            }
-            }
-
-            .delBtn {
-                color: #ff0000;
-                border: 1px solid #ff0000;
-                transition: all .3s ease;
-                &:hover {
-                    background-color: #ff0000;
-                    color: #fff;
-                }
-            }
-
-            .productQty {
-                margin: 0 10px;
-            }
-        }
     }
 
     &:hover {

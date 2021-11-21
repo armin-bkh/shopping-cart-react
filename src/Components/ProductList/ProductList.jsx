@@ -22,7 +22,6 @@ const ProductList = () => {
   }, []);
 
   return (
-    <main>
       <section className={`z-10 relative ${styles.productList}`}>
         {products ? (
           products.map((pr) => <ProductItem key={pr._id} product={pr} />)
@@ -30,7 +29,6 @@ const ProductList = () => {
           <h1 className={`title ${styles.Loading}`}>Loading...</h1>
         )}
       </section>
-    </main>
   );
 };
 

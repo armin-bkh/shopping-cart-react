@@ -31,26 +31,24 @@ const CartItem = ({ product, disable }) => {
       <div className={styles.img}>
         <img src={product.image} alt={product.name} />
       </div>
-      <div className={styles.description}>
+      <div className={`p-1 md:p-2 ${styles.description}`}>
         <div>
           <h1 className={`title`}>{product.name}</h1>
-          <span className={`main`}>${product.offPrice * product.qty}</span>
+          <span className={`main text-blue-600`}>${product.offPrice * product.qty}</span>
         </div>
         {!disable && (
-          <div className={styles.btnContainer}>
+          <div className={`border rounded-md border-gray-900 flex overflow-hidden`}>
             <button
               onClick={incrementHandler}
-              className={styles.incDecBtn}
+              className={`border-r border-gray-900 text-blue-600 p-1 transition hover:bg-blue-600 hover:text-white`}
               type="button"
             >
               <BiPlus />
             </button>
-            <span className={`main ${styles.productQty}`}>{product.qty}</span>
+            <span className={`main px-2`}>{product.qty}</span>
             <button
               onClick={decrementHandler}
-              className={`${styles.incDecBtn} ${
-                product.qty === 1 && styles.delBtn
-              }`}
+              className={`border-l border-gray-900 p-1 transition ${product.qty === 1 ? 'text-yellow-600 hover:bg-yellow-600 hover:text-white' : 'text-blue-600 hover:bg-blue-600 hover:text-white'}`}
               type="button"
             >
               {product.qty > 1 ? <BiMinus /> : <BiTrash />}
