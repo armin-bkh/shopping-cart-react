@@ -20,19 +20,19 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <article className={styles.card}>
+    <article className={`border border-gray-900 ${styles.card}`}>
       <img className={styles.img} src={product.image} alt={product.name} loading="lazy"/>
-      <header className={styles.header}>
+      <div className={styles.body}>
         <h1 className="title">{product.name}</h1>
-        <span className="main">${product.price}</span>
-      </header>
+        <span className="main text-blue-600">${product.price}</span>
+      </div>
       <button
         onClick={addToCartHandler}
         type="button"
-        className={`title ${styles.btn}`}
+        className={`title py-2 bg-gray-900 text-white flex justify-center items-center`}
       >
         {checkInCart(cart, product._id) ? "In cart" : "Add to cart"}
-        <MdOutlineAddShoppingCart className={styles.icon} />
+        <MdOutlineAddShoppingCart className={`ml-2 text-yellow-600`} />
       </button>
     </article>
   );

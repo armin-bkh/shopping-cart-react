@@ -3,39 +3,19 @@
     display: flex;
     flex-flow: column wrap;
     justify-content: center;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px #bbbbbb;
     transition: all .3s ease;
     cursor: pointer;
+    border-radius: 5px;
 
     .img {
         width: 100%;
     }
 
-    .header {
+    .body {
         padding: 20px;
         display: flex;
         align-items: center;
         justify-content: space-between;
-
-        h1 {
-            font-size: 1.2rem;
-        }
-    }
-
-    .btn {
-        padding: 10px 0;
-        border: none;
-        background: #93C5FD;
-        color: #fff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 1rem;
-
-        .icon {
-            margin-left: 7px;
-        }
     }
 
 

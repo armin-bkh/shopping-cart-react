@@ -74,7 +74,7 @@ const Navigation = () => {
                 >
                   <NavLink
                     className={({ isActive }) =>
-                      `headers flex items-center py-4 px-3 rounded-tr-xl rounded-bl-xl` +
+                      `headers flex items-center py-4 px-3 rounded-tr-xl rounded-bl-xl ` +
                       (isActive ? " bg-gray-900" : "")
                     }
                     to={nav.to}
@@ -91,14 +91,13 @@ const Navigation = () => {
                 >
                   <NavLink
                     className={({ isActive }) =>
-                      `headers ${styles.navItem} ` +
-                      (isActive ? styles.active : "")
+                      `headers flex items-center py-4 px-3 rounded-tr-xl rounded-bl-xl ` +
+                      (isActive ? " bg-gray-900" : "")
                     }
                     to={nav.to}
                   >
                     <span className={styles.icon}>{nav.icon}</span>
                     {nav.title}
-                    {nav.to === "/cart" && cart.length > 0 && cart.length}
                   </NavLink>
                 </li>
               ))}
