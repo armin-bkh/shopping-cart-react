@@ -26,7 +26,7 @@ const Navigation = () => {
   const { cart } = useCart();
 
   return (
-    <header className={`sticky top-0 bg-gray-900 text-white py-5 px-4`}>
+    <header className={`sticky top-0 bg-gray-900 text-white py-5 px-4 z-50`}>
       <ul className={`flex justify-between items-center`}>
         <li className={`z-50`}>
           <button
@@ -81,7 +81,6 @@ const Navigation = () => {
                   >
                     <span className={`mr-3`}>{nav.icon}</span>
                     {nav.title}
-                    {nav.to === "/cart" && cart.length > 0 && cart.length}
                   </NavLink>
                 </li>
               ))
