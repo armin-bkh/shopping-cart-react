@@ -48,7 +48,7 @@ const CartItem = ({ product, disable }) => {
             <span className={`main px-2`}>{product.qty}</span>
             <button
               onClick={decrementHandler}
-              className={`border-l border-gray-900 p-1 transition ${product.qty === 1 ? 'text-yellow-600 hover:bg-yellow-600 hover:text-white' : 'text-blue-600 hover:bg-blue-600 hover:text-white'}`}
+              className={`border-l border-gray-900 p-1 transition ${product.qty === 1 ? 'text-yellow-400 hover:bg-yellow-400 hover:text-white' : 'text-blue-600 hover:bg-blue-600 hover:text-white'}`}
               type="button"
             >
               {product.qty > 1 ? <BiMinus /> : <BiTrash />}

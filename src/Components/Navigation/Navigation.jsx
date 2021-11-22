@@ -75,7 +75,7 @@ const Navigation = () => {
                   <NavLink
                     className={({ isActive }) =>
                       `headers flex items-center py-4 px-3 rounded-tr-xl rounded-bl-xl ` +
-                      (isActive ? " bg-gray-900 text-yellow-500" : "")
+                      (isActive ? " bg-gray-900 text-yellow-400" : "")
                     }
                     to={nav.to}
                   >
@@ -92,7 +92,7 @@ const Navigation = () => {
                   <NavLink
                     className={({ isActive }) =>
                       `headers flex items-center py-4 px-3 rounded-tr-xl rounded-bl-xl ` +
-                      (isActive ? " bg-gray-900 text-yellow-500" : "")
+                      (isActive ? " bg-gray-900 text-yellow-400" : "")
                     }
                     to={nav.to}
                   >

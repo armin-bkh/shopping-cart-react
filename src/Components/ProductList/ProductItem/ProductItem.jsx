@@ -32,7 +32,7 @@ const ProductItem = ({ product }) => {
         className={`title py-2 bg-gray-900 text-white flex justify-center items-center`}
       >
         {checkInCart(cart, product._id) ? "In cart" : "Add to cart"}
-        <MdOutlineAddShoppingCart className={`ml-2 text-yellow-500`} />
+        <MdOutlineAddShoppingCart className={`ml-2 text-yellow-400`} />
       </button>
     </article>
   );

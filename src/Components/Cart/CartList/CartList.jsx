@@ -10,7 +10,7 @@ const CartList = ({disable}) => {
       {cart.length ? (
         cart.map((item) => <CartItem disable={disable} key={item._id} product={item} />)
       ) : (
-        <h1 className={`headers text-yellow-500 text-base md:text-3xl`}>your cart is emptey</h1>
+        <h1 className={`headers text-yellow-400 text-base md:text-3xl`}>your cart is emptey</h1>
       )}
     </section>
   );
