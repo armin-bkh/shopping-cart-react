@@ -29,36 +29,34 @@ const validationSchema = Yup.object({
   password: Yup.string()
     .required("password is required")
     .min(8, "password length should be greate than 8"),
-  passwordConfirmation: Yup.string("password confirmatin is required").required("password confirmation is required").oneOf(
-    [Yup.ref("password"), null],
-    "Passwords must match"
-  ),
+  passwordConfirmation: Yup.string("password confirmatin is required")
+    .required("password confirmation is required")
+    .oneOf([Yup.ref("password"), null], "Passwords must match"),
 });
 
 const SignupForm = () => {
   const setAuth = useAuthActions();
   const [error, setError] = useState(null);
   const { addToast } = useToasts();
-  const navigate = useNavigate(); 
-  const [{ redirect } , search] = useQuery();
-
+  const navigate = useNavigate();
+  const [{ redirect }, search] = useQuery();
 
   const onSubmit = async (values) => {
     const { name, email, phoneNumber, password } = values;
     const userData = { name, email, phoneNumber, password };
     try {
-      const {  data } = await postSignup(userData);
+      const { data } = await postSignup(userData);
       setAuth(data);
       setError(null);
-      if(redirect){
+      if (redirect) {
         navigate(`/${redirect}`, { replace: true });
         return;
       }
-      navigate("/", { replace: true })
+      navigate("/", { replace: true });
     } catch (error) {
-      if(error.response && error.response.data.message){
+      if (error.response && error.response.data.message) {
         setError(error.response.data.message);
-        addToast(error.response.data.message, { appearance: 'error' })
+        addToast(error.response.data.message, { appearance: "error" });
       }
     }
   };
@@ -74,10 +72,12 @@ const SignupForm = () => {
   return (
     <main className={styles.container}>
       <form
-        className={styles.signupFormContainer}
+        className={`flex flex-col p-5 shadow-2xl rounded-md w-full m-2 md:w-3/6 lg:w-2/6`}
         onSubmit={formik.handleSubmit}
       >
-        <h1 className={`headers`}>Signup</h1>
+        <h1 className={`headers text-yellow-400 text-2xl md:text-4xl mb-10`}>
+          Signup
+        </h1>
         <Input name="name" lbl="Name" formik={formik} />
         <Input
           name="phoneNumber"
@@ -95,14 +95,21 @@ const SignupForm = () => {
         />
         {error && <span className={`title ${styles.error}`}> {error} </span>}
         <button
-          className={`title ${styles.submitBtn}`}
+          className={`title mt-5 py-2 bg-gray-900 text-yellow-400 rounded-md transition-all text-sm md:text-base ${
+            !formik.isValid ? "opacity-50" : "opacity-100 "
+          }`}
           type="submit"
           disabled={!formik.isValid}
         >
           Submit
         </button>
 
-        <Link to={search ? { pathname: "/login", search } : "/login"} className={styles.question}>Already login?</Link>
+        <Link
+          to={search ? { pathname: "/login", search } : "/login"}
+          className={`mt-5 text-sm md:text-base border-t border-yellow-400 py-1 text-yellow-400 font-bold text-center`}
+        >
+          Already login?
+        </Link>
       </form>
     </main>
   );

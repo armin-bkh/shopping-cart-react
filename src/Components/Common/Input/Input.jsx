@@ -7,7 +7,7 @@ const Input = ({ name, lbl, formik, type }) => {
 
   return (
     <fieldset className={`flex flex-col mb-5`}>
-      <label className={`title mb-1 text-gray-900`} htmlFor={name}>
+      <label className={`title mb-1 text-sm md:text-base text-gray-900`} htmlFor={name}>
         {lbl}:
       </label>
 
@@ -27,7 +27,7 @@ const Input = ({ name, lbl, formik, type }) => {
         )}
       </div>
       {formik.errors[name] && formik.touched[name] && (
-        <span className={`main text-red-500 text-xs`}>{formik.errors[name]}</span>
+        <span className={`main text-red-500 text-xs ml-3`}>{formik.errors[name]}</span>
       )}
     </fieldset>
   );

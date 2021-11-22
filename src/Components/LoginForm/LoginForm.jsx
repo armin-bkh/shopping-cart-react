@@ -61,12 +61,16 @@ const LoginForm = () => {
         className={`flex flex-col shadow-2xl p-5 rounded-md w-full mx-2 md:w-3/6 lg:w-2/6`}
         onSubmit={formik.handleSubmit}
       >
-        <h1 className={"headers text-yellow-400 text-2xl md:text-4xl mb-10"}>Login</h1>
+        <h1 className={"headers text-yellow-400 text-2xl md:text-4xl mb-10"}>
+          Login
+        </h1>
         <Input name="email" lbl="Email" formik={formik} />
         <Input name="password" lbl="Password" formik={formik} type="password" />
         {error && <span className={`title ${styles.error}`}>{error}</span>}
         <button
-          className={`title py-2 bg-gray-900 text-yellow-400 rounded-md transition-all ${!formik.isValid ? 'opacity-50' : 'opacity-100 '}`}
+          className={`title mt-5 py-2 bg-gray-900 text-yellow-400 rounded-md transition-all text-sm md:text-base ${
+            !formik.isValid ? "opacity-50" : "opacity-100 "
+          }`}
           type="submit"
           disabled={!formik.isValid}
         >
@@ -74,7 +78,7 @@ const LoginForm = () => {
         </button>
         <Link
           to={search ? { pathname: "/signup", search } : "/signup"}
-          className={`mt-5 border-t border-yellow-400 py-1 text-yellow-400 font-bold text-center`}
+          className={`mt-5 text-sm md:text-base border-t border-yellow-400 py-1 text-yellow-400 font-bold text-center`}
         >
           Not signup yet?
         </Link>
