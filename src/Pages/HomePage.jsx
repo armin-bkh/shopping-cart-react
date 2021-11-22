@@ -17,17 +17,21 @@ export default HomePage;
 
 const Jumbotron = () => {
   return (
-    <section className={`jumbotron flex flex-col justify-center items-center`}>
-      <h1
-        className={`text-6xl lg:text-7xl xl:text-9xl text-white headers -mb-20`}
+    <section className={`overflow-hidden`}>
+      <section
+        className={`jumbotron flex flex-col justify-center items-center`}
       >
-        Armin <br /> Shopping
-      </h1>
-      <img
-        className={`max-w-xs sm:max-w-md lg:max-w-xl xl:max-w-2xl md:ml-10`}
-        src={Shoes}
-        alt="Nike Shoes"
-      />
+        <h1
+          className={`text-6xl py-9 md:text-8xl lg:text-9xl headers -mb-20 text-transparent bg-clip-text bg-gradient-to-br from-gray-500 fr to-gray-100`}
+        >
+          Armin <br /> Shopping
+        </h1>
+        <img
+          className={`max-w-xs lg:-mt-12 sm:max-w-md lg:max-w-xl xl:max-w-2xl md:ml-10`}
+          src={Shoes}
+          alt="Nike Shoes"
+        />
+      </section>
     </section>
   );
 };

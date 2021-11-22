@@ -20,15 +20,15 @@ const Profile = () => {
         <div className={`text-9xl text-gray-900`}>
           <FaUser />
         </div>
-        <h1 className={`title text-yellow-400 text-2xl mt-2 mb-10`}>{auth.name}</h1>
+        <h1 className={`title text-yellow-400 text-2xl mt-2 mb-10`}>{auth?.name}</h1>
         <ul>
           <li className="main flex items-center">
               <BsFillTelephoneFill className={`mr-2 text-yellow-400`} />
-            {auth.phoneNumber}
+            {auth?.phoneNumber}
           </li>
           <li className="main flex items-center">
               <MdOutlineMailOutline className={`mr-2 text-yellow-400`} />
-            {auth.email}
+            {auth?.email}
           </li>
         </ul>
       </section>

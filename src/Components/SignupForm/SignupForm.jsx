@@ -93,7 +93,7 @@ const SignupForm = () => {
           formik={formik}
           type="password"
         />
-        {error && <span className={`title ${styles.error}`}> {error} </span>}
+        {error && <span className={`title text-red-500 text-sm`}> {error} </span>}
         <button
           className={`title mt-5 py-2 bg-gray-900 text-yellow-400 rounded-md transition-all text-sm md:text-base ${
             !formik.isValid ? "opacity-50" : "opacity-100 "

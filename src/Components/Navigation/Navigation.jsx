@@ -35,18 +35,18 @@ const Navigation = () => {
             onClick={() => setIsShow((prevIsShow) => !prevIsShow)}
           >
             <div
-              className={`h-1 rounded-md bg-white transition-all ${isShow ? "w-4" : "w-8"}`}
+              className={`h-1 rounded-md transition-all ${isShow ? "w-4 bg-yellow-400" : "w-8 bg-white"}`}
             ></div>
             <div
               className={`w-8 h-1 bg-white my-2 rounded-md`}
             ></div>
             <div
-              className={`h-1 rounded-md bg-white transition-all self-end ${isShow ? "w-4" : "w-8"}`}
+              className={`h-1 rounded-md transition-all self-end ${isShow ? "w-4 bg-yellow-400" : "w-8 bg-white"}`}
             ></div>
           </button>
         </li>
         <li>
-          <h1 className={`iconTxt`}>Armin</h1>
+          <h1 className={`iconTxt text-2xl text-yellow-400`}>Armin</h1>
         </li>
         <li>
           <NavLink className={`relative`} to="/cart">
@@ -96,7 +96,7 @@ const Navigation = () => {
                     }
                     to={nav.to}
                   >
-                    <span className={styles.icon}>{nav.icon}</span>
+                    <span className={`mr-3`}>{nav.icon}</span>
                     {nav.title}
                   </NavLink>
                 </li>

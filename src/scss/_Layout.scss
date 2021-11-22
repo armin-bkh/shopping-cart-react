@@ -1,6 +1,23 @@
-.jumbotron{
-    height: 89vh;
-    background: linear-gradient(rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.5)) ,url('../Images/headerBg.jpg') no-repeat center;
+@keyframes zoom-in-out {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+
+.jumbotron {
+    animation: zoom-in-out 10s ease infinite;
+    height: 90vh;
+    background: linear-gradient(rgba(#111827, 1) 15%, rgba(#111827, 0.7)), url('../Images/headerBg.jpg') no-repeat center;
     background-size: cover;
+    background-attachment: fixed;
     z-index: 1;
 }
