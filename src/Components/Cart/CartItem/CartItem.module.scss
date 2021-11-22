@@ -1,7 +1,6 @@
 .cartItem {
     display: flex;
     width: 100%;
-    box-shadow: 0 2px 5px #bbbbbb;
     border-radius: 5px;
     transition: all .3s ease;
 
@@ -24,9 +23,5 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
-    }
-
-    &:hover {
-        box-shadow: 0 2px 15px #999999;
     }
 }

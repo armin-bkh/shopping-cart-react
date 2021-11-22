@@ -27,7 +27,7 @@ const CartItem = ({ product, disable }) => {
   };
 
   return (
-    <article className={styles.cartItem}>
+    <article className={`shadow hover:shadow-2xl ${styles.cartItem}`}>
       <div className={styles.img}>
         <img src={product.image} alt={product.name} />
       </div>
