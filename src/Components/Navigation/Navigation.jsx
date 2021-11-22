@@ -30,18 +30,18 @@ const Navigation = () => {
       <ul className={`flex justify-between items-center`}>
         <li className={`z-50`}>
           <button
+          className={`flex flex-col`}
             type="button"
             onClick={() => setIsShow((prevIsShow) => !prevIsShow)}
           >
             <div
-              className={`h-1 w-8 rounded-md bg-white ${isShow && "hidden"}`}
+              className={`h-1 rounded-md bg-white transition-all ${isShow ? "w-4" : "w-8"}`}
             ></div>
             <div
-              className={`w-8 bg-white my-2 transition-all
-             ${isShow ? "h-8 rounded-full my-0" : "h-1  my-2 rounded-md"}`}
+              className={`w-8 h-1 bg-white my-2 rounded-md`}
             ></div>
             <div
-              className={`h-1 w-8 rounded-md bg-white ${isShow && "hidden"}`}
+              className={`h-1 rounded-md bg-white transition-all self-end ${isShow ? "w-4" : "w-8"}`}
             ></div>
           </button>
         </li>
@@ -75,7 +75,7 @@ const Navigation = () => {
                   <NavLink
                     className={({ isActive }) =>
                       `headers flex items-center py-4 px-3 rounded-tr-xl rounded-bl-xl ` +
-                      (isActive ? " bg-gray-900" : "")
+                      (isActive ? " bg-gray-900 text-yellow-500" : "")
                     }
                     to={nav.to}
                   >
@@ -92,7 +92,7 @@ const Navigation = () => {
                   <NavLink
                     className={({ isActive }) =>
                       `headers flex items-center py-4 px-3 rounded-tr-xl rounded-bl-xl ` +
-                      (isActive ? " bg-gray-900" : "")
+                      (isActive ? " bg-gray-900 text-yellow-500" : "")
                     }
                     to={nav.to}
                   >

@@ -11,7 +11,7 @@ const App = () => {
         <ToastProvider
           autoDismiss={true}
           newestOnTop={true}
-          placement="top-left"
+          placement="top-right"
         >
           <Routes>
             {routes.map((route) => (

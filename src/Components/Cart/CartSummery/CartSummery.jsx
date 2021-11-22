@@ -9,7 +9,7 @@ const CartSummery = () => {
   
   return (
     <section className={styles.cartSummery}>
-      <h1 className="headers text-yellow-600 mb-5 text-xl">Cart summery</h1>
+      <h1 className="headers text-yellow-500 mb-5 text-xl">Cart summery</h1>
       <article className={`title ${styles.cartDetail}`}>
         <p>original total price: </p>
         <span className={"main text-blue-600"}>${originalTotalPrice(cart)}</span>
@@ -25,7 +25,7 @@ const CartSummery = () => {
 
       <Link
         to={{pathname: "/login", search: "redirect=checkout"}}
-        className={`title text-white mt-auto flex justify-center items-center rounded-md py-3 bg-gray-900`}
+        className={`title text-yellow-500 mt-auto flex justify-center items-center rounded-md py-3 bg-gray-900`}
       >
         go to checkout
       </Link>

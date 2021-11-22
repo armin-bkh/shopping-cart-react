@@ -58,15 +58,15 @@ const LoginForm = () => {
   return (
     <main className={styles.container}>
       <form
-        className={styles.loginFormContainer}
+        className={`flex flex-col shadow-2xl p-5 rounded-md w-full mx-2 md:w-3/6 lg:w-2/6`}
         onSubmit={formik.handleSubmit}
       >
-        <h1 className={"headers"}>Login</h1>
+        <h1 className={"headers text-yellow-400 text-2xl md:text-4xl mb-10"}>Login</h1>
         <Input name="email" lbl="Email" formik={formik} />
         <Input name="password" lbl="Password" formik={formik} type="password" />
         {error && <span className={`title ${styles.error}`}>{error}</span>}
         <button
-          className={`title ${styles.submitBtn}`}
+          className={`title py-2 bg-gray-900 text-yellow-400 rounded-md transition-all ${!formik.isValid ? 'opacity-50' : 'opacity-100 '}`}
           type="submit"
           disabled={!formik.isValid}
         >
@@ -74,7 +74,7 @@ const LoginForm = () => {
         </button>
         <Link
           to={search ? { pathname: "/signup", search } : "/signup"}
-          className={styles.question}
+          className={`mt-5 border-t border-yellow-400 py-1 text-yellow-400 font-bold text-center`}
         >
           Not signup yet?
         </Link>

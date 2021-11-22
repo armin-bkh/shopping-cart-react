@@ -20,9 +20,9 @@ const ProductItem = ({ product }) => {
   };
 
   return (
-    <article className={`border border-gray-900 ${styles.card}`}>
+    <article className={`shadow hover:shadow-2xl transition-all flex flex-col rounded-md overflow-hidden`}>
       <img className={styles.img} src={product.image} alt={product.name} loading="lazy"/>
-      <div className={styles.body}>
+      <div className={`flex items-center justify-between p-2`}>
         <h1 className="title">{product.name}</h1>
         <span className="main text-blue-600">${product.price}</span>
       </div>
@@ -32,7 +32,7 @@ const ProductItem = ({ product }) => {
         className={`title py-2 bg-gray-900 text-white flex justify-center items-center`}
       >
         {checkInCart(cart, product._id) ? "In cart" : "Add to cart"}
-        <MdOutlineAddShoppingCart className={`ml-2 text-yellow-600`} />
+        <MdOutlineAddShoppingCart className={`ml-2 text-yellow-500`} />
       </button>
     </article>
   );
