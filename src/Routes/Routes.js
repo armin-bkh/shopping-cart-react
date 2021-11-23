@@ -4,6 +4,7 @@ import CheckoutPage from '../Pages/CheckoutPage';
 import LoginPage from '../Pages/loginPage';
 import SignupPage from '../Pages/SignupPage';
 import ProfilePage from '../Pages/ProfilePage';
+import NotFoundPage from '../Pages/NotFoundPage';
 
 export const routes = [
     {path: "/", element: <HomePage /> },
@@ -12,4 +13,5 @@ export const routes = [
     {path: "/login", element: <LoginPage /> },
     {path: "/signup", element: <SignupPage /> },
     {path: "/profile", element: <ProfilePage /> },
+    {path: "*", element: <NotFoundPage /> },
 ]

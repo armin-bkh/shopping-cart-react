@@ -14,9 +14,9 @@
 
 
 .jumbotron {
-    animation: zoom-in-out 10s ease infinite;
+    animation: zoom-in-out 10s ease 2s infinite;
     height: 90vh;
-    background: linear-gradient(rgba(#111827, 1) 15%, rgba(#111827, 0.7)), url('../Images/headerBg.jpg') no-repeat center;
+    background: linear-gradient(rgba(#111827, 1) 15%, rgba(#111827, 0.7)), url('../Assets/Images/headerBg.jpg') no-repeat center;
     background-size: cover;
     background-attachment: fixed;
     z-index: 1;

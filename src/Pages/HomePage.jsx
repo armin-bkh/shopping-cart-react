@@ -1,6 +1,6 @@
 import ProductList from "../Components/ProductList/ProductList";
 import Layout from "../Layouts/Layout";
-import Shoes from "../Images/shoesbg.png";
+import Shoes from "../Assets/Images/shoesbg.png";
 
 const HomePage = () => {
   return (
