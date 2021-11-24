@@ -1,22 +1,29 @@
 import { useState, useEffect } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useParams } from "react-router";
 import checkInCart from "../Utils/checkInCart";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { useCart, useCartActions } from "../../Provider/CartProvider";
 import { useToasts } from "react-toast-notifications";
-import { Main } from '../styled-component/Main.style';
+import getProduct from '../../Services/getProduct';
 
 
 const ProductDetail = () => {
-    const { cart } = useCart();
-    const dispatch = useCartActions();
+  const { cart } = useCart();
+  const dispatch = useCartActions();
   const [product, setProduct] = useState();
   const { state } = useLocation();
+  const { id } = useParams();
   const { addToast } = useToasts();
 
   useEffect(() => {
     if (state) {
       setProduct(state);
+    } else {
+      const fetchData = async () => {
+        const { data } = await getProduct(id);
+        setProduct(data);
+      }
+      fetchData();
     }
   }, []);
 
@@ -31,7 +38,6 @@ const ProductDetail = () => {
   };
 
   return product ? (
-    <Main className={`m-5 shadow mx-auto rounded-md`}>
       <section>
         <article className={`flex flex-col md:flex-row flex-wrap text-gray-900`}>
           <div className={`w-full md:w-2/5 relative`}>
@@ -56,11 +62,10 @@ const ProductDetail = () => {
                     }
                 </ul>
             </div>
-            <button type="button" onClick={addToCartHandler} className={`py-2 mt-5 bg-gray-900 text-yellow-400 rounded-md title flex items-center justify-center`}>{checkInCart(cart, product._id) ? "in cart" : "add to cart"} <MdOutlineAddShoppingCart className={`ml-3`} /></button>
+            <button type="button" onClick={addToCartHandler} className={`py-2 mt-5 bg-gray-900 text-white rounded-md title flex items-center justify-center`}> <span>{checkInCart(cart, product._id) ? "in cart" : "add to cart"}</span> <MdOutlineAddShoppingCart className={`ml-3 text-yellow-400`} /></button>
           </div>
         </article>
       </section>
-    </Main>
   ) : null;
 };
 

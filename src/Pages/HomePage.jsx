@@ -27,7 +27,7 @@ const Jumbotron = () => {
           Armin <br /> Shopping
         </h1>
         <img
-          className={`max-w-xs lg:-mt-12 sm:max-w-md lg:max-w-xl xl:max-w-2xl md:ml-10`}
+          className={`max-w-xs lg:-mt-14 sm:max-w-md lg:max-w-xl xl:max-w-2xl md:ml-10 transform rotate-12`}
           src={Shoes}
           alt="Nike Shoes"
         />

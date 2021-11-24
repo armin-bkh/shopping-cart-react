@@ -16,7 +16,7 @@ const UserData = ({ auth }) => {
   return (
     <section className={styles.container}>
       {auth && (
-        <article className={`p-5 border border-gray-900 rounded-md flex flex-col items-center sticky top-20`}>
+        <article className={`p-5 shadow-md rounded-md flex flex-col items-center sticky top-20`}>
           <FaUser className={`text-gray-900 text-9xl`} />
           <h1 className={`title text-yellow-400 mb-10 mt-2 text-2xl`}>{auth.name}</h1>
           <ul className={`text-sm lg:text-base`}>

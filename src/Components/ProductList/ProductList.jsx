@@ -22,7 +22,7 @@ const ProductList = () => {
   }, []);
 
   return (
-      <section className={`z-10 relative ${styles.productList}`}>
+      <section className={`z-10 relative shadow-2xl ${styles.productList}`}>
         {products ? (
           products.map((pr) => <ProductItem key={pr._id} product={pr} />)
         ) : (
