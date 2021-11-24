@@ -4,6 +4,7 @@ import checkInCart from "../Utils/checkInCart";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { useCart, useCartActions } from "../../Provider/CartProvider";
 import { useToasts } from "react-toast-notifications";
+import { Main } from '../styled-component/Main.style';
 
 
 const ProductDetail = () => {
@@ -30,11 +31,11 @@ const ProductDetail = () => {
   };
 
   return product ? (
-    <main>
+    <Main className={`m-5 shadow mx-auto rounded-md`}>
       <section>
         <article className={`flex flex-col md:flex-row flex-wrap text-gray-900`}>
           <div className={`w-full md:w-2/5 relative`}>
-              {product.discount && <span className={`absolute w-10 h-10 rounded-full flex justify-center items-center top-3 right-3 font-bold transform rotate-12 text-red-500 border-2 border-red-500`}>{product.discount}%</span>}
+              {product.discount ? <span className={`absolute w-10 h-10 rounded-full flex justify-center items-center top-3 right-3 font-bold transform rotate-12 text-red-500 border-2 border-red-500`}>{product.discount}%</span> : null}
             <img
               className={`w-full h-full`}
               src={product.image}
@@ -59,7 +60,7 @@ const ProductDetail = () => {
           </div>
         </article>
       </section>
-    </main>
+    </Main>
   ) : null;
 };
 
