@@ -5,7 +5,7 @@ import styles from "./Product.module.scss";
 import checkInCart from "../../Utils/checkInCart";
 import { useNavigate } from "react-router-dom";
 
-const ProductItem = ({ product }) => {
+const ProductItem = ({ product, similar }) => {
   const navigate = useNavigate();
   const { cart } = useCart();
   const dispatch = useCartActions();
@@ -23,7 +23,7 @@ const ProductItem = ({ product }) => {
 
   return (
     <article
-      className={`shadow hover:shadow-2xl transition-all rounded-md overflow-hidden`}
+      className={`shadow hover:shadow-2xl transition-all rounded-md overflow-hidden ${similar && 'w-48 mx-4 flex-shrink-0'}`}
     >
       <div
         onClick={() =>

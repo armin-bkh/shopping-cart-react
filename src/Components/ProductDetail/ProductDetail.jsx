@@ -5,7 +5,8 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { useCart, useCartActions } from "../../Provider/CartProvider";
 import { useToasts } from "react-toast-notifications";
 import getProduct from '../../Services/getProduct';
-
+import { Main } from '../styled-component/Main.style';
+import SimilarProducts from '../SimilarProducts/SimilarProducts';
 
 const ProductDetail = () => {
   const { cart } = useCart();
@@ -25,7 +26,11 @@ const ProductDetail = () => {
       }
       fetchData();
     }
-  }, []);
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    })
+  }, [id, state]);
 
   const addToCartHandler = () => {
     if (checkInCart(cart, product._id)) {
@@ -38,6 +43,8 @@ const ProductDetail = () => {
   };
 
   return product ? (
+    
+    <Main className={`m-5 shadow mx-auto rounded-md p-5`}>
       <section>
         <article className={`flex flex-col md:flex-row flex-wrap text-gray-900`}>
           <div className={`w-full md:w-2/5 relative`}>
@@ -66,6 +73,8 @@ const ProductDetail = () => {
           </div>
         </article>
       </section>
+      <SimilarProducts name={product.name} />
+      </Main>
   ) : null;
 };
 
