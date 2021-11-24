@@ -1,15 +1,33 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
+import checkInCart from "../Utils/checkInCart";
+import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { useCart, useCartActions } from "../../Provider/CartProvider";
+import { useToasts } from "react-toast-notifications";
+
 
 const ProductDetail = () => {
+    const { cart } = useCart();
+    const dispatch = useCartActions();
   const [product, setProduct] = useState();
   const { state } = useLocation();
+  const { addToast } = useToasts();
 
   useEffect(() => {
     if (state) {
       setProduct(state);
     }
   }, []);
+
+  const addToCartHandler = () => {
+    if (checkInCart(cart, product._id)) {
+      addToast(`added to the number of ${product.name}`, {
+        appearance: "success",
+      });
+    } else
+      addToast(`${product.name} added to the cart`, { appearance: "success" });
+    dispatch({ type: "ADD_TO_CART", payload: product });
+  };
 
   return product ? (
     <main>
@@ -37,7 +55,7 @@ const ProductDetail = () => {
                     }
                 </ul>
             </div>
-            <button className={`py-2 bg-gray-900 text-yellow-400 rounded-md title`}>add to cart</button>
+            <button type="button" onClick={addToCartHandler} className={`py-2 mt-5 bg-gray-900 text-yellow-400 rounded-md title flex items-center justify-center`}>{checkInCart(cart, product._id) ? "in cart" : "add to cart"} <MdOutlineAddShoppingCart className={`ml-3`} /></button>
           </div>
         </article>
       </section>
