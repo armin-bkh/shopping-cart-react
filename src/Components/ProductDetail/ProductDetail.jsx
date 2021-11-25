@@ -44,8 +44,8 @@ const ProductDetail = () => {
 
   return product ? (
     
-    <Main className={`m-5 shadow mx-auto rounded-md p-5`}>
-      <section>
+    <Main className={`mx-auto p-5`}>
+      <section className={`shadow rounded-md`}>
         <article className={`flex flex-col md:flex-row flex-wrap text-gray-900`}>
           <div className={`w-full md:w-2/5 relative`}>
               {product.discount ? <span className={`absolute w-10 h-10 rounded-full flex justify-center items-center top-3 right-3 font-bold transform rotate-12 text-red-500 border-2 border-red-500`}>{product.discount}%</span> : null}

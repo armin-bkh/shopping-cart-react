@@ -4,32 +4,38 @@ import { useCart } from "../../Provider/CartProvider";
 import CartList from "../Cart/CartList/CartList";
 import styles from "./Checkout.module.scss";
 import UserData from "./UserData/UserData";
+import { FaFingerprint } from "react-icons/fa";
+import { Main } from "../styled-component/Main.style";
 
 const Checkout = () => {
   const { cart } = useCart();
   const auth = useAuth();
 
-  return (
+  return auth ? (
     <main className={styles.container}>
-      {auth ? (
-        <>
-          {!cart.length ? (
-            <Link to="/">your cart is emptey</Link>
-          ) : (
-            <>
-              <section>
-                <CartList disable />
-              </section>
-              <UserData auth={auth} />
-            </>
-          )}
-        </>
+      {!cart.length ? (
+        <section>
+          <Link className={`text-yellow-400 headers text-sm mx-auto inline-block md:text-3xl`} to="/">
+            please add a product to your cart
+          </Link>
+        </section>
       ) : (
-        <Link to={{ pathname: "/login", search: "redirect=checkout" }}>
-          please login
-        </Link>
+        <CartList disable />
       )}
+        <UserData auth={auth} />
     </main>
+  ) : (
+    <Main
+      className={`mx-auto min-h-screen m-5 flex items-center justify-center shadow-md rounded-md`}
+    >
+      <Link
+        className={`text-gray-900 flex flex-col items-center justify-center headers text-4xl`}
+        to={{ pathname: "/login", search: "redirect=checkout" }}
+      >
+        <FaFingerprint className={`text-9xl mb-5 text-yellow-400`} />
+        please login
+      </Link>
+    </Main>
   );
 };
 
