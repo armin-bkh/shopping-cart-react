@@ -6,6 +6,7 @@ import SignupPage from '../Pages/SignupPage';
 import ProfilePage from '../Pages/ProfilePage';
 import NotFoundPage from '../Pages/NotFoundPage';
 import ProductPage from '../Pages/ProductPage';
+import ProductsPage from '../Pages/ProductsPage';
 
 export const routes = [
     {path: "/", element: <HomePage /> },
@@ -15,5 +16,6 @@ export const routes = [
     {path: "/signup", element: <SignupPage /> },
     {path: "/profile", element: <ProfilePage /> },
     {path: "/products/product-:id", element: <ProductPage /> },
+    {path: "/products", element: <ProductsPage /> },
     {path: "*", element: <NotFoundPage /> },
 ]

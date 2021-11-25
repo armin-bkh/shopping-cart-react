@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
-import styles from "./Navigation.module.scss";
 import { AiFillHome } from "react-icons/ai";
 import { HiOutlineShoppingCart } from "react-icons/hi";
+import { MdOutlineFeaturedPlayList } from 'react-icons/md';
 import { useCart } from "../../Provider/CartProvider";
 import { BiLogInCircle } from "react-icons/bi";
 import { FaUserAlt } from "react-icons/fa";
@@ -10,12 +10,14 @@ import { useAuth } from "../../Provider/AuthProvider";
 
 const navigation = [
   { to: "/", title: "home", icon: <AiFillHome /> },
+  { to: "/products", title: "products", icon: <MdOutlineFeaturedPlayList /> },
   { to: "/cart", title: "cart", icon: <HiOutlineShoppingCart /> },
   { to: "/login", title: "login", icon: <BiLogInCircle /> },
 ];
 
 const logedInNavigation = [
   { to: "/", title: "home", icon: <AiFillHome /> },
+  { to: "/products", title: "products", icon: <MdOutlineFeaturedPlayList /> },
   { to: "/cart", title: "cart", icon: <HiOutlineShoppingCart /> },
   { to: "/profile", title: "profile", icon: <FaUserAlt /> },
 ];
@@ -70,7 +72,6 @@ const Navigation = () => {
             ? logedInNavigation.map((nav) => (
                 <li
                   key={nav.to}
-                  style={nav.to === "/profile" ? { marginLeft: "auto" } : null}
                 >
                   <NavLink
                     className={({ isActive }) =>
@@ -87,7 +88,6 @@ const Navigation = () => {
             : navigation.map((nav) => (
                 <li
                   key={nav.to}
-                  style={nav.to === "/login" ? { marginLeft: "auto" } : null}
                 >
                   <NavLink
                     className={({ isActive }) =>
