@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-// import { products } from "../../data";
+import ProductItemLoadingSkeleton from '../Loading-Skeleton/ProductItemLoadingSkeleton/ProductItemLoadingSkeleton';
 import getProducts from "../../Services/getProducts";
 import ProductItem from "./ProductItem/ProductItem";
 import styles from "./ProductList.module.scss";
@@ -26,8 +26,8 @@ const ProductList = () => {
         {products ? (
           products.map((pr) => <ProductItem key={pr._id} product={pr} />)
         ) : (
-          <h1 className={`title ${styles.Loading}`}>Loading...</h1>
-        )}
+          Array(8).fill().map((item, index) => <ProductItemLoadingSkeleton key={index} /> )
+         )} 
       </section>
   );
 };

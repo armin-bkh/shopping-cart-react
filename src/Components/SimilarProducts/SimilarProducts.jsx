@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import getProducts from "../../Services/getProducts";
 import ProductItem from "../ProductList/ProductItem/ProductItem";
+import ProductItemLoadingSkeleton from "../Loading-Skeleton/ProductItemLoadingSkeleton/ProductItemLoadingSkeleton";
 
 const SimilarProducts = ({ name }) => {
   const [products, setProducts] = useState(null);
@@ -19,7 +20,7 @@ const SimilarProducts = ({ name }) => {
       <article className={`flex flex-nowrap overflow-x-auto pb-5`}>
         {products
           ? products.map((pr) => <ProductItem key={pr._id} product={pr} similar={true} />)
-          : null}
+          : Array(8).fill().map((item, index) => <ProductItemLoadingSkeleton key={index} similar={true} />)}
       </article>
     </section>
   );
