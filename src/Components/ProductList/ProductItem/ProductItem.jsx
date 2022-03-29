@@ -23,7 +23,9 @@ const ProductItem = ({ product, similar }) => {
 
   return (
     <article
-      className={`shadow hover:shadow-2xl transition-all rounded-md overflow-hidden ${similar && 'w-48 mx-4 flex-shrink-0'}`}
+      className={`shadow hover:shadow-xl transition-all rounded-sm overflow-hidden ${
+        similar && "w-48 mx-4 flex-shrink-0"
+      }`}
     >
       <div
         onClick={() =>
@@ -39,16 +41,16 @@ const ProductItem = ({ product, similar }) => {
         />
         <div className={`flex items-center justify-between p-2`}>
           <h1 className="title">{product.name}</h1>
-          <span className="main text-blue-600">${product.price}</span>
+          <span className="main">${product.price}</span>
         </div>
       </div>
       <button
         onClick={addToCartHandler}
         type="button"
-        className={`title py-2 bg-gray-900 text-white flex justify-center items-center w-full`}
+        className={`title py-2 bg-red-400 text-white flex justify-center items-center w-full`}
       >
         {checkInCart(cart, product._id) ? "In cart" : "Add to cart"}
-        <MdOutlineAddShoppingCart className={`ml-2 text-yellow-400`} />
+        <MdOutlineAddShoppingCart className={`ml-2 text-emerald-300`} />
       </button>
     </article>
   );

@@ -16,18 +16,22 @@ const Profile = () => {
 
   return (
     <main className={styles.container}>
-      <section className={`flex flex-col shadow-2xl p-5 rounded-md items-center`}>
+      <section
+        className={`flex flex-col shadow-md p-5 rounded-md items-center`}
+      >
         <div className={`text-9xl text-gray-900`}>
           <FaUser />
         </div>
-        <h1 className={`title text-yellow-400 text-2xl mt-2 mb-10`}>{auth?.name}</h1>
+        <h1 className={`title text-red-400 text-2xl mt-2 mb-10`}>
+          {auth?.name}
+        </h1>
         <ul>
           <li className="main flex items-center">
-              <BsFillTelephoneFill className={`mr-2 text-yellow-400`} />
+            <BsFillTelephoneFill className={`mr-2 text-red-400`} />
             {auth?.phoneNumber}
           </li>
           <li className="main flex items-center">
-              <MdOutlineMailOutline className={`mr-2 text-yellow-400`} />
+            <MdOutlineMailOutline className={`mr-2 text-red-400`} />
             {auth?.email}
           </li>
         </ul>

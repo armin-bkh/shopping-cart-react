@@ -58,18 +58,18 @@ const LoginForm = () => {
   return (
     <main className={styles.container}>
       <form
-        className={`flex flex-col shadow-2xl p-5 rounded-md w-full mx-2 md:w-3/6 lg:w-2/6`}
+        className={`flex flex-col shadow-xl p-5 rounded-md w-full mx-2 md:w-3/6 lg:w-2/6`}
         onSubmit={formik.handleSubmit}
       >
-        <h1 className={"headers text-yellow-400 text-2xl md:text-4xl mb-10"}>
+        <h1 className={"headers text-red-400 text-2xl md:text-4xl mb-10"}>
           Login
         </h1>
         <Input name="email" lbl="Email" formik={formik} />
         <Input name="password" lbl="Password" formik={formik} type="password" />
         {error && <span className={`title text-red-500 text-sm`}>{error}</span>}
         <button
-          className={`title mt-5 py-2 bg-gray-900 text-yellow-400 rounded-md transition-all text-sm md:text-base ${
-            !formik.isValid ? "opacity-50" : "opacity-100 "
+          className={`title mt-5 py-2 bg-red-200 text-red-400 rounded-md transition-all text-sm md:text-base ${
+            !formik.isValid ? "opacity-70" : "opacity-100 "
           }`}
           type="submit"
           disabled={!formik.isValid}
@@ -78,7 +78,7 @@ const LoginForm = () => {
         </button>
         <Link
           to={search ? { pathname: "/signup", search } : "/signup"}
-          className={`mt-5 text-sm md:text-base border-t border-yellow-400 py-1 text-yellow-400 font-bold text-center`}
+          className={`mt-5 text-sm border-t border-red-400 py-1 text-red-400 font-bold text-center`}
         >
           Not signup yet?
         </Link>

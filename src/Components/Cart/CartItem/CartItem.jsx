@@ -27,20 +27,22 @@ const CartItem = ({ product, disable }) => {
   };
 
   return (
-    <article className={`shadow hover:shadow-2xl ${styles.cartItem}`}>
+    <article className={`shadow hover:shadow-lg ${styles.cartItem}`}>
       <div className={styles.img}>
         <img src={product.image} alt={product.name} />
       </div>
       <div className={`p-1 md:p-2 ${styles.description}`}>
         <div>
           <h1 className={`title`}>{product.name}</h1>
-          <span className={`main text-blue-600`}>${product.offPrice * product.qty}</span>
+          <span className={`main text-red-400`}>
+            ${product.offPrice * product.qty}
+          </span>
         </div>
         {!disable && (
-          <div className={`border rounded-md border-gray-900 flex overflow-hidden`}>
+          <div className={`border rounded-md flex overflow-hidden`}>
             <button
               onClick={incrementHandler}
-              className={`border-r border-gray-900 text-blue-600 p-1 transition hover:bg-blue-600 hover:text-white`}
+              className={`border-r text-emerald-300 p-1 transition hover:bg-emerald-300 hover:text-white`}
               type="button"
             >
               <BiPlus />
@@ -48,7 +50,11 @@ const CartItem = ({ product, disable }) => {
             <span className={`main px-2`}>{product.qty}</span>
             <button
               onClick={decrementHandler}
-              className={`border-l border-gray-900 p-1 transition ${product.qty === 1 ? 'text-yellow-400 hover:bg-yellow-400 hover:text-white' : 'text-blue-600 hover:bg-blue-600 hover:text-white'}`}
+              className={`border-l p-1 transition ${
+                product.qty === 1
+                  ? "text-red-400 hover:bg-red-400 hover:text-white"
+                  : "text-emerald-300 hover:bg-emerald-300 hover:text-white"
+              }`}
               type="button"
             >
               {product.qty > 1 ? <BiMinus /> : <BiTrash />}
